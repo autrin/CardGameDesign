@@ -1,6 +1,6 @@
 package coms362.cards.abstractcomp;
 
-import coms362.cards.fiftytwo.PartyRole;
+import coms362.cards.game.PartyRole;
 import coms362.cards.model.PlayerFactory;
 import coms362.cards.streams.RemoteTableGateway;
 

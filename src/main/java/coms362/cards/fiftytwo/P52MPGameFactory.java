@@ -6,6 +6,8 @@ import coms362.cards.abstractcomp.Rules;
 import coms362.cards.abstractcomp.Table;
 import coms362.cards.abstractcomp.View;
 import coms362.cards.abstractcomp.ViewFactory;
+import coms362.cards.game.PartyRole;
+import coms362.cards.game.PlayerView;
 import coms362.cards.model.PlayerFactory;
 import coms362.cards.model.TableBase;
 import coms362.cards.streams.RemoteTableGateway;
@@ -24,7 +26,7 @@ public class P52MPGameFactory implements GameFactory, PlayerFactory, ViewFactory
 
 	@Override
 	public View createView(PartyRole role, Integer num, String socketId, RemoteTableGateway gw ) {
-		return new P52PlayerView(num, socketId, gw);
+		return new PlayerView(num, socketId, gw);
 	}
 
 	@Override

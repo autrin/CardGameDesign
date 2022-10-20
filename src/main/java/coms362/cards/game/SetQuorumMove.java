@@ -1,15 +1,15 @@
-package coms362.cards.fiftytwo;
+package coms362.cards.game;
 
 import coms362.cards.abstractcomp.Move;
 import coms362.cards.abstractcomp.Table;
 import coms362.cards.app.ViewFacade;
 import coms362.cards.model.Quorum;
 
-public class SetQuorumCmd implements Move {
+public class SetQuorumMove implements Move {
 
     private Quorum quorum;
 
-    public SetQuorumCmd(Quorum quorum) {
+    public SetQuorumMove(Quorum quorum) {
         this.quorum = quorum;
     }
 

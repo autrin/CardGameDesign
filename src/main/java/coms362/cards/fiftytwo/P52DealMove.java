@@ -10,10 +10,10 @@ import coms362.cards.events.remote.UpdateCardRemote;
 import coms362.cards.model.Card;
 import coms362.cards.model.Pile;
 
-public class DealCommand implements Move {
+public class P52DealMove implements Move {
     private Table table;
 
-    public DealCommand(Table table, Player player) {
+    public P52DealMove(Table table, Player player) {
         this.table = table;
     }
 
@@ -25,9 +25,9 @@ public class DealCommand implements Move {
     public void apply(ViewFacade views) {
 
         try {
-            String remoteId = views.getRemoteId(DealButton.kSelector);
+            String remoteId = views.getRemoteId(P52DealButton.kSelector);
             views.send(new HideButtonRemote(remoteId));
-            Pile local = table.getPile(P52Rules.RANDOM_PILE);
+            Pile local = table.getPile(P52Rules.DROP_PILE);
             if (local == null) {
                 return;
             }

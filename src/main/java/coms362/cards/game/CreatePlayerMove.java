@@ -1,16 +1,16 @@
-package coms362.cards.fiftytwo;
+package coms362.cards.game;
 
 import coms362.cards.abstractcomp.Move;
 import coms362.cards.abstractcomp.Table;
 import coms362.cards.app.ViewFacade;
 import coms362.cards.streams.RemoteTableGateway;
 
-public class CreatePlayerCmd implements Move {
+public class CreatePlayerMove implements Move {
 
     private Integer position;
     private String socketId;
 
-    public CreatePlayerCmd(Integer position, String socketId) {
+    public CreatePlayerMove(Integer position, String socketId) {
         super();
         this.position = position;
         this.socketId = socketId;

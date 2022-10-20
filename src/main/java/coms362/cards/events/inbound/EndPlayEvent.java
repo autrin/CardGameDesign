@@ -7,7 +7,7 @@ import coms362.cards.abstractcomp.Table;
 import coms362.cards.app.GameController;
 import coms362.cards.model.PregameSetup;
 
-public class EndPlay implements Event, SysEvent {
+public class EndPlayEvent implements Event, SysEvent {
 
     @Override
     public Move dispatch(RulesDispatch rules, Table table, Player player) {

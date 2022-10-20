@@ -2,16 +2,16 @@ package coms362.cards.events.remote;
 
 import coms362.cards.streams.Marshalls;
 
-public class SetupTable implements Marshalls {
+public class SetupTableRemote implements Marshalls {
 
 	private String id = "#card-table";
 	private String url = "js/3rdparty/einaregilsson-cards-js/img/cards.png";
 	
-	public SetupTable(){
+	public SetupTableRemote(){
 		
 	}
 	
-	public SetupTable(String id, String cardsUrl){
+	public SetupTableRemote(String id, String cardsUrl){
 		this.id = id;
 		this.url = cardsUrl;
 		

@@ -9,7 +9,7 @@ import java.util.Map;
 
 import coms362.cards.abstractcomp.View;
 import coms362.cards.abstractcomp.ViewFactory;
-import coms362.cards.fiftytwo.PartyRole;
+import coms362.cards.game.PartyRole;
 import coms362.cards.model.IdGenerator;
 import coms362.cards.model.PresentationObject;
 import coms362.cards.streams.Marshalls;

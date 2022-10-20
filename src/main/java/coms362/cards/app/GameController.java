@@ -7,14 +7,14 @@ import coms362.cards.abstractcomp.GameFactory;
 import coms362.cards.abstractcomp.Rules;
 import coms362.cards.abstractcomp.Table;
 import coms362.cards.events.inbound.ConnectEvent;
-import coms362.cards.events.inbound.EndPlay;
+import coms362.cards.events.inbound.EndPlayEvent;
 import coms362.cards.events.inbound.Event;
-import coms362.cards.events.inbound.InvalidGameSelection;
+import coms362.cards.events.inbound.InvalidGameSelectionEvent;
 import coms362.cards.events.inbound.NewPartyEvent;
-import coms362.cards.events.inbound.SelectGame;
+import coms362.cards.events.inbound.SelectGameEvent;
 import coms362.cards.events.inbound.SetQuorumEvent;
 import coms362.cards.events.inbound.SysEvent;
-import coms362.cards.fiftytwo.PartyRole;
+import coms362.cards.game.PartyRole;
 import coms362.cards.model.PregameSetup;
 import coms362.cards.model.Quorum;
 import coms362.cards.streams.InBoundQueue;
@@ -91,7 +91,7 @@ public class GameController {
         String selection = "";
         if (e.getParam("host") != null) {
             if ((selection = e.getParam("game")) != null) {
-                inQ.pushBack(new SelectGame(selection, e));
+                inQ.pushBack(new SelectGameEvent(selection, e));
             }
         }
 
@@ -102,7 +102,7 @@ public class GameController {
         }
     }
 
-    public void apply(SelectGame e, PregameSetup game) {
+    public void apply(SelectGameEvent e, PregameSetup game) {
         String selected = "";
         if (abstractFactory.isValidSelection(selected = e.getSelection())) {
             game.setSelected(selected);
@@ -113,12 +113,12 @@ public class GameController {
         } else {
             // we need to inform the alleged host now
             System.out.format("GameController. SelectGame : %s is not a supported game.", selected);
-            inQ.pushBack(new InvalidGameSelection(selected));
+            inQ.pushBack(new InvalidGameSelectionEvent(selected));
         }
 
     }
 
-    public void apply(InvalidGameSelection e, PregameSetup game) {
+    public void apply(InvalidGameSelectionEvent e, PregameSetup game) {
         System.out.println("InvalidGameSelection Event");
         try {
             remote.send(new SystemStatus(e.getMsg()), "default");
@@ -133,7 +133,7 @@ public class GameController {
     }
 
     // should not normally be processed from game controller.
-    public void apply(EndPlay endPlay, PregameSetup game2) {
+    public void apply(EndPlayEvent endPlay, PregameSetup game2) {
         throw new ExitTestException("Exit on EndPlay Event");
     }
 

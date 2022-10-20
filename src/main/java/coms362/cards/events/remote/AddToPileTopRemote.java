@@ -4,11 +4,11 @@ import coms362.cards.model.Card;
 import coms362.cards.model.Pile;
 import coms362.cards.streams.Marshalls;
 
-public class AddToPileRemote implements Marshalls {
+public class AddToPileTopRemote implements Marshalls {
 	private Pile p;
 	private Card c;
 
-	public AddToPileRemote(Pile p, Card c) {
+	public AddToPileTopRemote(Pile p, Card c) {
 		this.p = p;
 		this.c = c;
 	}

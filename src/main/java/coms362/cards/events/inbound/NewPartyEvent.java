@@ -5,7 +5,7 @@ import coms362.cards.abstractcomp.Player;
 import coms362.cards.abstractcomp.RulesDispatch;
 import coms362.cards.abstractcomp.Table;
 import coms362.cards.app.GameController;
-import coms362.cards.fiftytwo.PartyRole;
+import coms362.cards.game.PartyRole;
 import coms362.cards.model.PregameSetup;
 
 /**

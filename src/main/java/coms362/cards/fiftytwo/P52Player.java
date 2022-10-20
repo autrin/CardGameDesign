@@ -39,5 +39,4 @@ public class P52Player implements Player {
 		return String.format("Player: pos=%d, socket=%s, score=%d%n" , playerNum, socketId, score);
 	}
 
-
 }

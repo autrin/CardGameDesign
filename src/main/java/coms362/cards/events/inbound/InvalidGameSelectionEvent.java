@@ -15,11 +15,11 @@ import coms362.cards.model.PregameSetup;
  * 
  * @author Robert Ward
  */
-public class InvalidGameSelection implements Event, SysEvent {
+public class InvalidGameSelectionEvent implements Event, SysEvent {
 
 	private String selection; 
 	
-	public InvalidGameSelection(String selection) {
+	public InvalidGameSelectionEvent(String selection) {
 		this.selection = selection;
 	}
 

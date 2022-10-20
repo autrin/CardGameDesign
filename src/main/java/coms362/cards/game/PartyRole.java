@@ -1,4 +1,4 @@
-package coms362.cards.fiftytwo;
+package coms362.cards.game;
 
 public enum PartyRole {
 	player,

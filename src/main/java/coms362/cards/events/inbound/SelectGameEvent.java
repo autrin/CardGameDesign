@@ -8,16 +8,16 @@ import coms362.cards.app.GameController;
 import coms362.cards.model.PregameSetup;
 import coms362.cards.model.Quorum;
 
-public class SelectGame implements SysEvent, Event {
+public class SelectGameEvent implements SysEvent, Event {
 	
 	private String selection;
 	private Quorum quorum;
 	
-	public SelectGame (String gameId){
+	public SelectGameEvent (String gameId){
 		selection = gameId;
 	}
 	
-	public SelectGame(String selection, ConnectEvent e) {
+	public SelectGameEvent(String selection, ConnectEvent e) {
 		this.selection = selection;
 		this.quorum = e.getQuorum();
 	}

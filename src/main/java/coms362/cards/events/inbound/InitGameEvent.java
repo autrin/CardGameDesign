@@ -30,7 +30,5 @@ public class InitGameEvent implements Event {
 	public Move dispatch(RulesDispatch rules, Table table, Player player) {
 		return rules.apply(this, table, player);
 	}
-	
-
 
 }

@@ -1,4 +1,4 @@
-package coms362.cards.fiftytwo;
+package coms362.cards.game;
 
 import java.io.IOException;
 
@@ -10,13 +10,13 @@ import coms362.cards.streams.RemoteTableGateway;
 /**
  * @author Robert Ward
  */
-public class P52PlayerView implements View {
+public class PlayerView implements View {
 
     private RemoteTableGateway remote;
     private Integer pos;
     private String socketId;
 
-    public P52PlayerView(Integer num, String socketId, RemoteTableGateway remote) {
+    public PlayerView(Integer num, String socketId, RemoteTableGateway remote) {
         this.remote = remote;
         this.socketId = socketId;
         this.pos = num;

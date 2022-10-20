@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import coms362.cards.abstractcomp.GameFactory;
 import coms362.cards.events.inbound.ConnectEvent;
-import coms362.cards.events.inbound.EndPlay;
+import coms362.cards.events.inbound.EndPlayEvent;
 import coms362.cards.events.inbound.Event;
 import coms362.cards.model.PlayerFactory;
 import coms362.cards.socket.SocketMessage;
@@ -42,7 +42,7 @@ public class TestMatchController {
 		
 		Event connectEvent = new ConnectEvent(new SocketMessage("connect", 1234));
 		inQ.add(connectEvent);
-		inQ.add(new EndPlay());
+		inQ.add(new EndPlayEvent());
 		
 		mc.start();
 		

@@ -10,7 +10,7 @@ import coms362.cards.app.GameController;
 import coms362.cards.app.GameFactoryFactory;
 import coms362.cards.events.inbound.ConnectEvent;
 import coms362.cards.events.inbound.DealEvent;
-import coms362.cards.events.inbound.EndPlay;
+import coms362.cards.events.inbound.EndPlayEvent;
 import coms362.cards.fiftytwo.TestEndpoint;
 import coms362.cards.fiftytwo.TestGFF;
 import coms362.cards.fiftytwo.TestGameFactory;
@@ -40,7 +40,7 @@ public class TestConnectEvents {
 		//pre-load the input stream with the input for this test
 		inQ.add(new ConnectEvent(new SocketMessage(fullHostInfo, 10001)));
 		inQ.add(new DealEvent());
-		inQ.add(new EndPlay());
+		inQ.add(new EndPlayEvent());
 		RemoteTableGateway gw = RemoteTableGateway.getInstance();
 		TestEndpoint epLog = new TestEndpoint();				
 		gw.setSocket(epLog);

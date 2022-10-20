@@ -18,10 +18,10 @@ import coms362.cards.abstractcomp.View;
 import coms362.cards.app.PlayController;
 import coms362.cards.app.ViewFacade;
 import coms362.cards.events.inbound.DealEvent;
-import coms362.cards.events.inbound.EndPlay;
+import coms362.cards.events.inbound.EndPlayEvent;
 import coms362.cards.fiftytwo.LoggingView;
 import coms362.cards.fiftytwo.P52MPGameFactory;
-import coms362.cards.fiftytwo.P52InitCmd;
+import coms362.cards.fiftytwo.P52InitMove;
 import coms362.cards.fiftytwo.P52Player;
 import coms362.cards.fiftytwo.P52Rules;
 import coms362.cards.model.TableBase;
@@ -37,7 +37,7 @@ public class TestDealInput {
 		InBoundQueue inQ = new InBoundQueue();
 		//pre-load the input stream with the input for this test
 		inQ.add(new DealEvent());
-		inQ.add(new EndPlay()); //artifice to stop the test
+		inQ.add(new EndPlayEvent()); //artifice to stop the test
 		
 		ViewFacade views = new ViewFacade(null);
 		//we keep a reference to the concrete type for later
@@ -51,7 +51,7 @@ public class TestDealInput {
 		
 		// initialize the local model for Pu52 match
 		Table table = new TableBase(new P52MPGameFactory());
-		Move move = new P52InitCmd(players, "", table);
+		Move move = new P52InitMove(players, "", table);
 		move.apply(table);
 		Rules rules = new P52Rules();
 		

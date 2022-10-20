@@ -8,6 +8,7 @@ import coms362.cards.abstractcomp.Player;
 import coms362.cards.abstractcomp.Rules;
 import coms362.cards.abstractcomp.Table;
 import coms362.cards.abstractcomp.View;
+import coms362.cards.game.PartyRole;
 import coms362.cards.model.PlayerFactory;
 import coms362.cards.streams.RemoteTableGateway;
 

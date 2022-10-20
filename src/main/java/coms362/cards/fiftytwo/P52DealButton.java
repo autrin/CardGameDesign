@@ -5,10 +5,10 @@ import coms362.cards.model.Button;
 import coms362.cards.model.Location;
 
 
-public class DealButton extends Button {
+public class P52DealButton extends Button {
 	public static final String kSelector = "dealButton";
 
-	public DealButton(String label, Location location) {
+	public P52DealButton(String label, Location location) {
 		super(kSelector, DealEvent.kId, label, location);
 	}	
 
