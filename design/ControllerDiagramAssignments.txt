@@ -2,5 +2,5 @@ GameController class diagram - Andrew Snyder
 MatchController class diagram - Sam Caldwell
 PlayController class diagram - Autrin Hakimi
 GameController sequence diagram - Steven Marlowe
-MatchController sequence diagram - Alex DomowiczSam Caldwell
+MatchController sequence diagram - Alex Domowicz
 PlayController sequence diagram - John SchraderBachar
