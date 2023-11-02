@@ -4,3 +4,6 @@ This is a framework for term projects in an object-oriented design class.
 - John SchraderBachar
 - Andrew Snyder
 - Autrin Hakimi
+- Steven Marlowe
+- Alex Domowicz
+- Sam Caldwell
