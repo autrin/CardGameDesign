@@ -1,36 +1,60 @@
-<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>310</x><y>0</y><w>350</w><h>120</h></coordinates><panel_attributes>PlayController
+<diagram program="umletino" version="15.1"><zoom_level>11</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>165</x><y>88</y><w>385</w><h>132</h></coordinates><panel_attributes>PlayController
 --
 -inQ: InBoundQueue
 -rules: Rules
 --
 +play(table:Table, player:Player, views:ViewFacade): Event
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>570</x><y>290</y><w>130</w><h>90</h></coordinates><panel_attributes>InBoundQueue
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>451</x><y>352</y><w>143</w><h>99</h></coordinates><panel_attributes>InBoundQueue
+--
+
+--
++next()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>451</x><y>627</y><w>143</w><h>99</h></coordinates><panel_attributes>Move
 --
 
 --
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>570</x><y>540</y><w>130</w><h>90</h></coordinates><panel_attributes>Move
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>121</x><y>627</y><w>143</w><h>99</h></coordinates><panel_attributes>Event
 --
 
 --
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>540</y><w>130</w><h>90</h></coordinates><panel_attributes>Event
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>517</x><y>209</y><w>77</w><h>165</h></coordinates><panel_attributes>lt=&lt;-
+invokes</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>121</x><y>352</y><w>143</w><h>99</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Rules
 --
 
 --
-
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>630</x><y>110</y><w>70</w><h>200</h></coordinates><panel_attributes>lt=&lt;-
-invokes</panel_attributes><additional_attributes>10;180;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>270</x><y>290</y><w>130</w><h>90</h></coordinates><panel_attributes>Rules
---
-
---
-
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>320</x><y>110</y><w>70</w><h>200</h></coordinates><panel_attributes>lt=&lt;-
-invokes</panel_attributes><additional_attributes>10;180;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>160</x><y>70</y><w>170</w><h>540</h></coordinates><panel_attributes>lt=&lt;-
++eval(Event, Table, Player): Move
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>176</x><y>209</y><w>77</w><h>165</h></coordinates><panel_attributes>lt=&lt;-
+invokes</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>0</x><y>165</y><w>187</w><h>539</h></coordinates><panel_attributes>lt=&lt;-
 invokes
 m2=0..*
-m1=1</panel_attributes><additional_attributes>110;510;10;510;10;10;150;10</additional_attributes></element><element><id>Relation</id><coordinates><x>650</x><y>60</y><w>200</w><h>550</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>110;460;10;460;10;10;150;10</additional_attributes></element><element><id>Relation</id><coordinates><x>539</x><y>154</y><w>220</w><h>550</h></coordinates><panel_attributes>lt=&lt;-
 invokes
 m2=0..*
-m1=1</panel_attributes><additional_attributes>50;520;140;520;140;10;10;10</additional_attributes></element></diagram>
+m1=1</panel_attributes><additional_attributes>50;470;140;470;140;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>253</x><y>253</y><w>143</w><h>99</h></coordinates><panel_attributes>Table
+--
+
+--
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>286</x><y>363</y><w>143</w><h>99</h></coordinates><panel_attributes>Views
+--
+
+--
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>286</x><y>561</y><w>143</w><h>99</h></coordinates><panel_attributes>Event
+--
+
+--
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>297</x><y>0</y><w>143</w><h>55</h></coordinates><panel_attributes>MatchController
+--
+
+--
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>352</x><y>44</y><w>33</w><h>66</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>10;40;10;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>11</x><y>11</y><w>154</w><h>77</h></coordinates><panel_attributes>one concrete class for 
+Rules and one example
+for Move
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element></diagram>

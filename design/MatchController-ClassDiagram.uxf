@@ -1,0 +1,98 @@
+<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>618</x><y>210</y><w>150</w><h>114</h></coordinates><panel_attributes>MatchController
+--
+- views: ViewFacade
+- table: Table
+- rules: Rules
+- inQ: InBoundQueue
+
+--
++MatchController(inQ: InBoundQueue,
+                                     table: Table,
+                                     rules: Rules
+                                     factory: GameFactory)
++ start(): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>414</x><y>396</y><w>168</w><h>150</h></coordinates><panel_attributes>ViewFacade
+--
+- factory: ViewFactory
+- views: ArrayList&lt;View&gt; 
+- remoteIdLookup : Map&lt;String, String&gt;
+--
++ ViewFacade(factory: ViewFactory)
++ createView(role: PartyRole,
+                            pos: Integer,
+                            socketId: String, 
+                            gw: remoteTableGateway): View
++ getDefaultView(): View
++ send(cmd: Marshalls): void
++ add(view: View): void
++ register(item: PresentationObject): void
++ getRemoteId(selector: String): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>168</x><y>444</y><w>168</w><h>72</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+ViewFactory
+--
++ createView(role: PartyRole,
+                            num: Integer,
+                            socketId: String, 
+                            gw: remoteTableGateway): View</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>516</x><y>318</y><w>162</w><h>90</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;130;10;90;250;90;250;10</additional_attributes></element><element><id>Relation</id><coordinates><x>330</x><y>474</y><w>96</w><h>18</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;140;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>318</x><y>594</y><w>120</w><h>54</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+View
+--
++ send(event: Marshalls): void
++ getCameraPosition(): int
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>372</x><y>486</y><w>54</w><h>120</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..*
+</panel_attributes><additional_attributes>10;180;10;10;70;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>846</x><y>354</y><w>186</w><h>204</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+Table
+--
++ addPile(pile: Pile): void
++ addPlayer(p: Player): void
++ getPile(string: String): Pile
++ removeFromPile(string: String, c: Card): void
++ addToPile(string: String, c: Card): void
++ addToScore(p: Player, i: int): int
++ isMatchOver(): boolean
++ setMatchOver(over: boolean): void
++ getRandom(): Random
++ getHost(): Party
++ partiesReady(): boolean
++ getCurrentPlayer(): Player
++ setQuorum(quorum Quorum): void
++ getQuorum(): Quorum
++ getPlayers(): Collection&lt;Player&gt;
++ getPlayerMap(): Map&lt;Integer, Player&gt;
++ createPlayer(pos: Integer, socketId: String): void
++ lookupPlayer(socketId: String): Player
++ getPlayer(pos: Integer): Player</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>708</x><y>318</y><w>150</w><h>66</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>230;90;10;90;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>816</x><y>150</y><w>120</w><h>54</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+Rules
+--
++ eval(nextE: Event, table: Table,
+                player: Player): Move</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>288</x><y>138</y><w>150</w><h>96</h></coordinates><panel_attributes>inBoundQueue
+--
+- serialVersionUID: long
+- pushBack: stack&lt;Event&gt;
+--
++ add(e: Event): boolean
++ take(): Event
++ pushBack(e: Event): void
++ pushBack(items: Stack&lt;Event&gt;): void
++ isEmpty(): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>708</x><y>174</y><w>120</w><h>48</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>180;10;10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>612</x><y>66</y><w>162</w><h>48</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Event
+--
++ dispatch(rules: RulesDispatch, table: Table,
+                        player: Player): Move</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>348</x><y>228</y><w>282</w><h>72</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;100;210;100;210;90;230;90;230;100;450;100</additional_attributes></element><element><id>Relation</id><coordinates><x>684</x><y>108</y><w>30</w><h>114</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..1</panel_attributes><additional_attributes>10;10;10;170</additional_attributes></element><element><id>Relation</id><coordinates><x>768</x><y>96</y><w>120</w><h>66</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;180;10;180;90</additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>84</y><w>264</w><h>66</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..*</panel_attributes><additional_attributes>420;20;270;20;270;10;250;10;250;20;10;20;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>846</x><y>240</y><w>126</w><h>60</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+Move
+--
++ apply(table: Table): void
++ apply(views: ViewFacade): void
++ isMatchEnd(): boolean
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>762</x><y>264</y><w>96</w><h>24</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..1</panel_attributes><additional_attributes>140;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>906</x><y>294</y><w>54</w><h>72</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>70;100;70;50;10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>768</x><y>84</y><w>204</w><h>168</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>320;260;320;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>486</x><y>132</y><w>132</w><h>66</h></coordinates><panel_attributes>PlayController
+--
+-inQ: InBoundQueue
+-rules: Rules
+--
++play(table:Table, player:Player, 
+               views:ViewFacade): Event
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>870</x><y>198</y><w>18</w><h>54</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>612</x><y>174</y><w>66</w><h>48</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..1</panel_attributes><additional_attributes>10;10;90;10;90;60</additional_attributes></element><element><id>Relation</id><coordinates><x>432</x><y>162</y><w>66</w><h>36</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;40;50;40;50;10;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>612</x><y>150</y><w>216</w><h>24</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>340;20;140;20;140;10;120;10;120;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>474</x><y>192</y><w>90</w><h>216</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;340;10;100;130;100;130;10</additional_attributes></element><element><id>Relation</id><coordinates><x>510</x><y>42</y><w>504</w><h>324</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>820;520;820;10;10;10;10;150</additional_attributes></element></diagram>
