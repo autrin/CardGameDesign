@@ -1,60 +1,104 @@
-<diagram program="umletino" version="15.1"><zoom_level>11</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>165</x><y>88</y><w>385</w><h>132</h></coordinates><panel_attributes>PlayController
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>288</x><y>240</y><w>280</w><h>88</h></coordinates><panel_attributes>PlayController
 --
 -inQ: InBoundQueue
 -rules: Rules
 --
 +play(table:Table, player:Player, views:ViewFacade): Event
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>451</x><y>352</y><w>143</w><h>99</h></coordinates><panel_attributes>InBoundQueue
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>560</x><y>416</y><w>152</w><h>72</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Move
 --
-
---
-+next()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>451</x><y>627</y><w>143</w><h>99</h></coordinates><panel_attributes>Move
---
-
---
-
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>121</x><y>627</y><w>143</w><h>99</h></coordinates><panel_attributes>Event
---
-
---
-
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>517</x><y>209</y><w>77</w><h>165</h></coordinates><panel_attributes>lt=&lt;-
-invokes</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>121</x><y>352</y><w>143</w><h>99</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
++apply(table:Table): void
++apply(veiws:ViewFacade): void
++isMatchEnd(): boolean
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>560</x><y>280</y><w>256</w><h>280</h></coordinates><panel_attributes>lt=&lt;-
+invokes</panel_attributes><additional_attributes>260;330;260;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>80</x><y>424</y><w>160</w><h>72</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
 Rules
 --
-
---
 +eval(Event, Table, Player): Move
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>176</x><y>209</y><w>77</w><h>165</h></coordinates><panel_attributes>lt=&lt;-
-invokes</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>0</x><y>165</y><w>187</w><h>539</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>160</x><y>320</y><w>184</w><h>120</h></coordinates><panel_attributes>lt=&lt;-
+invokes</panel_attributes><additional_attributes>10;130;10;80;210;80;210;10</additional_attributes></element><element><id>Relation</id><coordinates><x>32</x><y>296</y><w>272</w><h>288</h></coordinates><panel_attributes>lt=&lt;-
 invokes
 m2=0..*
-m1=1</panel_attributes><additional_attributes>110;460;10;460;10;10;150;10</additional_attributes></element><element><id>Relation</id><coordinates><x>539</x><y>154</y><w>220</w><h>550</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>40;330;10;330;10;10;320;10</additional_attributes></element><element><id>Relation</id><coordinates><x>504</x><y>320</y><w>152</w><h>112</h></coordinates><panel_attributes>lt=&lt;-
 invokes
 m2=0..*
-m1=1</panel_attributes><additional_attributes>50;470;140;470;140;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>253</x><y>253</y><w>143</w><h>99</h></coordinates><panel_attributes>Table
---
-
---
-
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>286</x><y>363</y><w>143</w><h>99</h></coordinates><panel_attributes>Views
---
-
---
-
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>286</x><y>561</y><w>143</w><h>99</h></coordinates><panel_attributes>Event
---
-
---
-
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>297</x><y>0</y><w>143</w><h>55</h></coordinates><panel_attributes>MatchController
---
-
---
-
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>352</x><y>44</y><w>33</w><h>66</h></coordinates><panel_attributes>lt=&lt;-
-</panel_attributes><additional_attributes>10;40;10;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>11</x><y>11</y><w>154</w><h>77</h></coordinates><panel_attributes>one concrete class for 
+m1=1</panel_attributes><additional_attributes>160;120;160;70;10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>424</x><y>168</y><w>24</w><h>88</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>UMLNote</id><coordinates><x>176</x><y>184</y><w>112</w><h>56</h></coordinates><panel_attributes>one concrete class for 
 Rules and one example
 for Move
-bg=blue</panel_attributes><additional_attributes></additional_attributes></element></diagram>
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>560</x><y>256</y><w>376</w><h>456</h></coordinates><panel_attributes>lt=&lt;.
+</panel_attributes><additional_attributes>450;550;450;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>736</x><y>0</y><w>176</w><h>56</h></coordinates><panel_attributes>ArrayBlockingQueue&lt;E&gt;
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>832</x><y>48</y><w>32</w><h>512</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>20;10;10;620</additional_attributes></element><element><id>UMLClass</id><coordinates><x>720</x><y>544</y><w>168</w><h>128</h></coordinates><panel_attributes>InBoundQueue
+--
+- serialVersionUID: long
+- pushBack: Stack&lt;Event&gt;
+--
++ add(e: Event): boolean
++ InBoundQueue()
++ take(): Event
++ pushBack(Stack&lt;Event&gt; items)
++ isEmpty(): boolean
++ pushBack(e: Event)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>400</x><y>320</y><w>24</w><h>112</h></coordinates><panel_attributes>lt=&lt;.
+</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>296</x><y>40</y><w>264</w><h>136</h></coordinates><panel_attributes>MatchController
+--
+- views: ViewFacade
+- table: Table
+- rules: Rules
+- inQ: InBoundQueue
+
+--
++MatchController(inQ: InBoundQueue, table: Table, 
+																																rules: Rules, factory: GameFactory)
++ start(): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>760</x><y>696</y><w>224</w><h>200</h></coordinates><panel_attributes>ViewFacade
+--
+- factory: ViewFactory
+- views: ArrayList&lt;View&gt; 
+- remoteIdLookup : HashMap&lt;String, String&gt;
+--
++ createView(role: PartyRole,
+                            pos: Integer,
+                            socketId: String, 
+                            gw: RemoteTableGateway): View
++ getDefaultView(): View
++ send(cmd: Marshalls): void
++ add(view: View): void
++ register(item: PresentationObject): void
++ getRemoteId(selector: String): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>288</x><y>416</y><w>248</w><h>264</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+Table
+--
++ addPile(pile: Pile): void
++ addPlayer(p: Player): void
++ getPile(string: String): Pile
++ removeFromPile(string: String, c: Card): void
++ addToPile(string: String, c: Card): void
++ addToScore(p: Player, i: int): int
++ isMatchOver(): boolean
++ setMatchOver(over: boolean): void
++ getRandom(): Random
++ getHost(): Party
++ partiesReady(): boolean
++ getCurrentPlayer(): Player
++ setQuorum(quorum Quorum): void
++ getQuorum(): Quorum
++ getPlayers(): Collection&lt;Player&gt;
++ getPlayerMap(): Map&lt;Integer, Player&gt;
++ createPlayer(pos: Integer, socketId: String): void
++ lookupPlayer(socketId: String): Player
++ getPlayer(pos: Integer): Player</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>592</x><y>680</y><w>128</w><h>96</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Player
+--
++addToScore(amount: int): int
++getPlayerNum(): int
++getSocketId(): String
++getScore(): int
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>600</x><y>200</y><w>128</w><h>48</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Party
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>640</x><y>240</y><w>120</w><h>456</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>20;10;20;170;130;170;130;340;10;340;10;550</additional_attributes></element><element><id>UMLClass</id><coordinates><x>64</x><y>528</y><w>208</w><h>64</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Event
+--
++ dispatch(rules: RulesDispatch, table: Table,
+              player: Player): Move</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>8</x><y>264</y><w>600</w><h>464</h></coordinates><panel_attributes>lt=&lt;.
+</panel_attributes><additional_attributes>730;560;10;560;10;10;350;10</additional_attributes></element></diagram>
