@@ -1,32 +1,32 @@
-<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>280</x><y>240</y><w>280</w><h>88</h></coordinates><panel_attributes>PlayController
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>429</x><y>240</y><w>280</w><h>88</h></coordinates><panel_attributes>PlayController
 --
 -inQ: InBoundQueue
 -rules: Rules
 --
 +play(table:Table, player:Player, views:ViewFacade): Event
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>552</x><y>416</y><w>152</w><h>72</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>701</x><y>416</y><w>152</w><h>72</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
 Move
 --
 +apply(table:Table): void
 +apply(veiws:ViewFacade): void
 +isMatchEnd(): boolean
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>552</x><y>280</y><w>256</w><h>280</h></coordinates><panel_attributes>lt=&lt;-
-invokes</panel_attributes><additional_attributes>260;330;260;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>72</x><y>424</y><w>160</w><h>72</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>701</x><y>280</y><w>256</w><h>280</h></coordinates><panel_attributes>lt=&lt;-
+invokes</panel_attributes><additional_attributes>260;330;260;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>221</x><y>424</y><w>160</w><h>72</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
 Rules
 --
 +eval(Event, Table, Player): Move
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>152</x><y>320</y><w>184</w><h>120</h></coordinates><panel_attributes>lt=&lt;-
-invokes</panel_attributes><additional_attributes>10;130;10;80;210;80;210;10</additional_attributes></element><element><id>Relation</id><coordinates><x>24</x><y>296</y><w>272</w><h>288</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>301</x><y>320</y><w>184</w><h>120</h></coordinates><panel_attributes>lt=&lt;-
+invokes</panel_attributes><additional_attributes>10;130;10;80;210;80;210;10</additional_attributes></element><element><id>Relation</id><coordinates><x>173</x><y>296</y><w>272</w><h>288</h></coordinates><panel_attributes>lt=&lt;-
 invokes
 m2=0..*
-m1=1</panel_attributes><additional_attributes>40;330;10;330;10;10;320;10</additional_attributes></element><element><id>Relation</id><coordinates><x>496</x><y>320</y><w>152</w><h>112</h></coordinates><panel_attributes>lt=&lt;-
+m1=1</panel_attributes><additional_attributes>40;330;10;330;10;10;320;10</additional_attributes></element><element><id>Relation</id><coordinates><x>645</x><y>320</y><w>152</w><h>112</h></coordinates><panel_attributes>lt=&lt;-
 invokes
 m2=0..*
-m1=1</panel_attributes><additional_attributes>160;120;160;70;10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>416</x><y>168</y><w>24</w><h>88</h></coordinates><panel_attributes>lt=&lt;-
-</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>552</x><y>256</y><w>376</w><h>456</h></coordinates><panel_attributes>lt=&lt;.
-</panel_attributes><additional_attributes>450;550;450;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>728</x><y>0</y><w>176</w><h>56</h></coordinates><panel_attributes>ArrayBlockingQueue&lt;E&gt;
---</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>832</x><y>48</y><w>24</w><h>512</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;620</additional_attributes></element><element><id>UMLClass</id><coordinates><x>712</x><y>544</y><w>168</w><h>128</h></coordinates><panel_attributes>InBoundQueue
+m1=1</panel_attributes><additional_attributes>160;120;160;70;10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>565</x><y>168</y><w>24</w><h>88</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>701</x><y>256</y><w>376</w><h>456</h></coordinates><panel_attributes>lt=&lt;.
+</panel_attributes><additional_attributes>450;550;450;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>877</x><y>0</y><w>176</w><h>56</h></coordinates><panel_attributes>ArrayBlockingQueue&lt;E&gt;
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>981</x><y>48</y><w>24</w><h>512</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;620</additional_attributes></element><element><id>UMLClass</id><coordinates><x>861</x><y>544</y><w>168</w><h>128</h></coordinates><panel_attributes>InBoundQueue
 --
 - serialVersionUID: long
 - pushBack: Stack&lt;Event&gt;
@@ -36,8 +36,8 @@ m1=1</panel_attributes><additional_attributes>160;120;160;70;10;70;10;10</additi
 + take(): Event
 + pushBack(Stack&lt;Event&gt; items)
 + isEmpty(): boolean
-+ pushBack(e: Event)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>392</x><y>320</y><w>24</w><h>112</h></coordinates><panel_attributes>lt=&lt;.
-</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>288</x><y>40</y><w>264</w><h>136</h></coordinates><panel_attributes>MatchController
++ pushBack(e: Event)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>541</x><y>320</y><w>24</w><h>112</h></coordinates><panel_attributes>lt=&lt;.
+</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>437</x><y>40</y><w>264</w><h>136</h></coordinates><panel_attributes>MatchController
 --
 - views: ViewFacade
 - table: Table
@@ -48,7 +48,7 @@ m1=1</panel_attributes><additional_attributes>160;120;160;70;10;70;10;10</additi
 +MatchController(inQ: InBoundQueue, table: Table, 
 																																rules: Rules, factory: GameFactory)
 + start(): void
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>752</x><y>696</y><w>224</w><h>200</h></coordinates><panel_attributes>ViewFacade
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>901</x><y>696</y><w>224</w><h>200</h></coordinates><panel_attributes>ViewFacade
 --
 - factory: ViewFactory
 - views: ArrayList&lt;View&gt; 
@@ -62,7 +62,7 @@ m1=1</panel_attributes><additional_attributes>160;120;160;70;10;70;10;10</additi
 + send(cmd: Marshalls): void
 + add(view: View): void
 + register(item: PresentationObject): void
-+ getRemoteId(selector: String): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>280</x><y>416</y><w>248</w><h>264</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
++ getRemoteId(selector: String): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>429</x><y>416</y><w>248</w><h>264</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
 Table
 --
 + addPile(pile: Pile): void
@@ -83,19 +83,19 @@ Table
 + getPlayerMap(): Map&lt;Integer, Player&gt;
 + createPlayer(pos: Integer, socketId: String): void
 + lookupPlayer(socketId: String): Player
-+ getPlayer(pos: Integer): Player</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>584</x><y>680</y><w>128</w><h>96</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
++ getPlayer(pos: Integer): Player</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>733</x><y>680</y><w>128</w><h>96</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
 Player
 --
 +addToScore(amount: int): int
 +getPlayerNum(): int
 +getSocketId(): String
 +getScore(): int
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>592</x><y>200</y><w>128</w><h>48</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>741</x><y>200</y><w>128</w><h>48</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
 Party
 --
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>632</x><y>240</y><w>120</w><h>456</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>20;10;20;170;130;170;130;340;10;340;10;550</additional_attributes></element><element><id>UMLClass</id><coordinates><x>56</x><y>528</y><w>208</w><h>64</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>781</x><y>240</y><w>120</w><h>456</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>20;10;20;170;130;170;130;340;10;340;10;550</additional_attributes></element><element><id>UMLClass</id><coordinates><x>205</x><y>528</y><w>208</w><h>64</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
 Event
 --
 + dispatch(rules: RulesDispatch, table: Table,
-              player: Player): Move</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>0</x><y>264</y><w>600</w><h>464</h></coordinates><panel_attributes>lt=&lt;.
+              player: Player): Move</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>149</x><y>264</y><w>600</w><h>464</h></coordinates><panel_attributes>lt=&lt;.
 </panel_attributes><additional_attributes>730;560;10;560;10;10;350;10</additional_attributes></element></diagram>
