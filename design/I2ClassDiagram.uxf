@@ -1,0 +1,9 @@
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><element><id>UMLClass</id><coordinates><x>112</x><y>296</y><w>248</w><h>72</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+SinglePlayer
+--
+- 
+bg=red</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>424</x><y>296</y><w>248</w><h>72</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+MultiPlayer
+--
+- 
+bg=red</panel_attributes><additional_attributes></additional_attributes></element></diagram>
