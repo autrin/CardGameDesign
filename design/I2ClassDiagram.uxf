@@ -1,9 +1,45 @@
-<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><element><id>UMLClass</id><coordinates><x>112</x><y>296</y><w>248</w><h>72</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
-SinglePlayer
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><element><id>UMLClass</id><coordinates><x>568</x><y>328</y><w>296</w><h>64</h></coordinates><panel_attributes>PlayerCountButton
 --
-- 
-bg=red</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>424</x><y>296</y><w>248</w><h>72</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
-MultiPlayer
+- kSelectorBase
 --
-- 
-bg=red</panel_attributes><additional_attributes></additional_attributes></element></diagram>
++ PlayerCountButton(label: String, count: int, location: Location)
+fg=red
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>392</x><y>128</y><w>352</w><h>152</h></coordinates><panel_attributes>Button
+--
+- evtName: String
+- label: String
+- location: Location
+--
++ Button(selector: String, evtName: String, label: String, location: Location)
++ getEvtName(): String
++ setEvtName(evtName: String)
++ getLabel(): String
++ setLabel(label: String)
++ getLocation(): Location
++ setLocation(location: Location)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>480</x><y>0</y><w>176</w><h>104</h></coordinates><panel_attributes>Presentation Object
+--
+- remoteId: String
+--
++ selector: String
++ PresentationObject()
++ PresentationObject(selector: String)
++ setRemoteId(remoteId: String)
++ getRemoteId(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>248</x><y>328</y><w>296</w><h>64</h></coordinates><panel_attributes>SelectGameButton
+--
+- kSelectorBase
+--
++ SelectGameButton(label: String, location: Location)
+fg=red
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>64</x><y>112</y><w>272</w><h>168</h></coordinates><panel_attributes>SelectGameEvent
+--
+- selection: String
+- quorum: Quorum
+--
++ SelectGameEvent(gameID: String)
++ SelectGameEvent(selection: String, e: ConnectEvent)
++ getSelection(): String
++ dispatch(rules: RulesDispatch, table: Table,
+              player: Player): Move
++ accept(handler: GameController, game: PregameSetup)
++ hasQuorum(): boolean
++ get Quorum(): Quorum</panel_attributes><additional_attributes></additional_attributes></element></diagram>
