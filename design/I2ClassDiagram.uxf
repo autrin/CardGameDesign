@@ -1,10 +1,10 @@
-<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><element><id>UMLClass</id><coordinates><x>568</x><y>328</y><w>296</w><h>64</h></coordinates><panel_attributes>PlayerCountButton
+<diagram program="umletino" version="15.1"><zoom_level>6</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>930</x><y>642</y><w>222</w><h>48</h></coordinates><panel_attributes>PlayerCountButton
 --
-- kSelectorBase
+- kSelectorBase: String
 --
 + PlayerCountButton(label: String, count: int, location: Location)
 fg=red
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>392</x><y>128</y><w>352</w><h>152</h></coordinates><panel_attributes>Button
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>774</x><y>438</y><w>264</w><h>114</h></coordinates><panel_attributes>Button
 --
 - evtName: String
 - label: String
@@ -16,7 +16,7 @@ fg=red
 + getLabel(): String
 + setLabel(label: String)
 + getLocation(): Location
-+ setLocation(location: Location)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>480</x><y>0</y><w>176</w><h>104</h></coordinates><panel_attributes>Presentation Object
++ setLocation(location: Location)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>846</x><y>336</y><w>132</w><h>78</h></coordinates><panel_attributes>PresentationObject
 --
 - remoteId: String
 --
@@ -24,22 +24,120 @@ fg=red
 + PresentationObject()
 + PresentationObject(selector: String)
 + setRemoteId(remoteId: String)
-+ getRemoteId(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>248</x><y>328</y><w>296</w><h>64</h></coordinates><panel_attributes>SelectGameButton
++ getRemoteId(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>690</x><y>642</y><w>222</w><h>48</h></coordinates><panel_attributes>SelectGameButton
 --
-- kSelectorBase
+- kSelectorBase: String
 --
 + SelectGameButton(label: String, location: Location)
 fg=red
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>64</x><y>112</y><w>272</w><h>168</h></coordinates><panel_attributes>SelectGameEvent
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>282</x><y>420</y><w>204</w><h>126</h></coordinates><panel_attributes>SelectGameEvent
 --
 - selection: String
 - quorum: Quorum
 --
 + SelectGameEvent(gameID: String)
-+ SelectGameEvent(selection: String, e: ConnectEvent)
++ SelectGameEvent(selection: String, e: ConnectEvent) 
 + getSelection(): String
 + dispatch(rules: RulesDispatch, table: Table,
               player: Player): Move
 + accept(handler: GameController, game: PregameSetup)
 + hasQuorum(): boolean
-+ get Quorum(): Quorum</panel_attributes><additional_attributes></additional_attributes></element></diagram>
++ get Quorum(): Quorum
++ createEvent(sktEvent: SocketMessage): Event</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>48</x><y>360</y><w>186</w><h>192</h></coordinates><panel_attributes>GameController
+--
+- inQ: InBoundQueue
+- remote: RemoteTableGateway
+- abstractFactory: GameFactoryFactory
+- deferred: Stack&lt;Event&gt;
+- game: PregameSetup
+--
++ GameController(inQ: InBoundQueue, 
+              gateway: RemoteTableGateway,
+              gFFactory: GameFactoryFactory)
++ run()
++ apply(e: ConnectEvent,
+              game: PregameSetup)
++ apply(e: SelectGameEvent,
+              game: PregameSetup)
++ apply(e: InvalidGameSelectionEvent,
+              game: PregameSetup)
++ apply(e: NewPartyEvent,
+              game: PregameSetup)
++ apply(endPlay: EndPlayEvent,
+              game2: PregameSetup)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>504</x><y>420</y><w>228</w><h>126</h></coordinates><panel_attributes>SetQuorumEvent
+--
+quorum: Quorum
+--
++ SetQuorumEvent(min: String, max: String)
++ SetQuorumEvent(quorum: Quorum)
++ dispatch(rules: RulesDispatch, table Table, 
+              player: Player): Move
++ getQuorum(): Quorum
++ createEvent(sktEvent: SocketMessage): Event</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>174</y><w>216</w><h>120</h></coordinates><panel_attributes>P52Rules
+--
++ DROP_PILE: String
++ PICKUP_PILE: String
++ P52Rules()
++ eval(nextE: Event, table: Table, player: Player): Move
++ apply(e: CardEvent, table: Table, player: Player): Move
++ apply(e: DealEvent, table: Table, player: Player): Move
++ apply(e: InitGameEvent, table: Table, player: Player): Move
++ apply(e: NewPartyEvent, table: Table, player: Player): Move
++ apply(e: SetQuorumEvent, table: Table, player: Player): Move
++ apply(e: ConnectEvent, table: Table, player: Player): Move
++ registerEvents()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>546</x><y>330</y><w>216</w><h>42</h></coordinates><panel_attributes>P52SPPickupRules
+--
++ apply(e: InitGameEvent, table: Table, player: Player): Move
++ apply(e: SetQuorumEvent, table: Table, player: Player): Move</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>510</x><y>288</y><w>18</w><h>144</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;220;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>618</x><y>366</y><w>18</w><h>66</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>564</x><y>288</y><w>18</w><h>54</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>942</x><y>612</y><w>18</w><h>42</h></coordinates><panel_attributes>lt=&lt;&lt;-
+fg=red</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>870</x><y>612</y><w>18</w><h>42</h></coordinates><panel_attributes>lt=&lt;&lt;-
+fg=red</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>900</x><y>408</y><w>18</w><h>42</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>228</x><y>468</y><w>66</w><h>24</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>90;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>768</x><y>162</y><w>300</w><h>132</h></coordinates><panel_attributes>ViewFacade
+--
+- factory: ViewFactory
+- views: List&lt;View&gt;
+- remoteIdLookup: Map&lt;String, String&gt;
+- state: ScreenState
+--
++ createView(role: PartyRole, pos: Integer, socketId, String, 
+              gw: RemoteTableGateway)
++ getDefaultView(): View
++ send(cmd: Marshalls)
++ add(view: View)
++ register(item: PresentationObject)
++ register(item: VariableButton)
++ getRemoteId(selector: String)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>840</x><y>576</y><w>150</w><h>42</h></coordinates><panel_attributes>VariableButton
+--
+fg=red
++ Button(selector: String, evtName: String,
+              label: String, location: Location)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>894</x><y>546</y><w>18</w><h>42</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>900</x><y>288</y><w>18</w><h>60</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>984</x><y>288</y><w>84</w><h>318</h></coordinates><panel_attributes>lt=&lt;-
+fg=red</panel_attributes><additional_attributes>10;510;120;510;120;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>378</x><y>336</y><w>126</w><h>42</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+EventFactory
+--</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>432</x><y>372</y><w>18</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;.
+fg=red</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>372</y><w>120</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;.
+fg=red</panel_attributes><additional_attributes>10;10;10;60;180;60;180;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>336</x><y>600</y><w>204</w><h>96</h></coordinates><panel_attributes>SocketMessage
+--
+- map: Map
+- socketId: int
+--
++ SocketMessage(message: String, socketHash: int)
++ SocketMessage(map: Map&lt;String, String&gt;, socketId, int)
++ getSocketId(): int
++ getName(): String
++ get(key: String): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>384</x><y>540</y><w>18</w><h>72</h></coordinates><panel_attributes>lt=&lt;-
+fg=red</panel_attributes><additional_attributes>10;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>504</x><y>540</y><w>18</w><h>72</h></coordinates><panel_attributes>lt=&lt;-
+fg=red</panel_attributes><additional_attributes>10;100;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1116</x><y>186</y><w>150</w><h>66</h></coordinates><panel_attributes>fg=red
+ScreenState
+--
+- remoteIDs: ArrayList&lt; ArrayList&lt;String&gt; &gt;
+--
++ append(screen: ArrayList&lt;String&gt;)
++ hasMore(): boolean
++ currentObjects(): ArrayList&lt;String&gt;
++ nextObjects(): ArrayList&lt;String&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1062</x><y>210</y><w>66</w><h>18</h></coordinates><panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;&gt;
+fg=red</panel_attributes><additional_attributes>90;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>792</x><y>66</y><w>180</w><h>72</h></coordinates><panel_attributes>SetQuorumMove
+--
+- quorum: Quorum
+-- 
++ SetQuorumMove(quorum: Quorum)
++ apply(table Table)
++ apply(view: ViewFacade)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>882</x><y>132</y><w>18</w><h>42</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>630</x><y>108</y><w>174</w><h>96</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>270;10;190;10;190;140;10;140</additional_attributes></element></diagram>
