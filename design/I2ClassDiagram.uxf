@@ -14,16 +14,16 @@ fg=red
 + getEvtName(): String
 + setEvtName(evtName: String)
 + getLabel(): String
-+ setLabel(label: String)
++ setLabel(label: String):void
 + getLocation(): Location
-+ setLocation(location: Location)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1862</x><y>630</y><w>308</w><h>182</h></coordinates><panel_attributes>PresentationObject
++ setLocation(location: Location): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1862</x><y>630</y><w>308</w><h>182</h></coordinates><panel_attributes>PresentationObject
 --
 - remoteId: String
 --
 + selector: String
 + PresentationObject()
 + PresentationObject(selector: String)
-+ setRemoteId(remoteId: String)
++ setRemoteId(remoteId: String):void
 + getRemoteId(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1498</x><y>1344</y><w>518</w><h>112</h></coordinates><panel_attributes>SelectGameButton
 --
 - kSelectorBase: String
