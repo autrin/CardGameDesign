@@ -12,6 +12,7 @@ import coms362.cards.abstractcomp.ViewFactory;
 import coms362.cards.game.PartyRole;
 import coms362.cards.model.IdGenerator;
 import coms362.cards.model.PresentationObject;
+import coms362.cards.model.VariableButton;
 import coms362.cards.streams.Marshalls;
 import coms362.cards.streams.RemoteTableGateway;
 
@@ -73,6 +74,12 @@ public class ViewFacade {
         remoteIdLookup.put(item.selector, rval = Integer.toString(IdGenerator.next()));
         item.setRemoteId(rval);
     }
+    
+    // public void register(VariableButton item) {
+    //     String rval = "";
+    //     remoteIdLookup.put(item.selector, rval = Integer.toString(IdGenerator.next()));
+    //     item.setRemoteId(rval);
+    // }
 
     public String getRemoteId(String selector) {
         return remoteIdLookup.get(selector);
