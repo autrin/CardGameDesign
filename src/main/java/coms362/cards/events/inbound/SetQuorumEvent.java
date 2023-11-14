@@ -5,11 +5,15 @@ import coms362.cards.abstractcomp.Player;
 import coms362.cards.abstractcomp.RulesDispatch;
 import coms362.cards.abstractcomp.Table;
 import coms362.cards.model.Quorum;
+import coms362.cards.socket.SocketMessage;
 
-public class SetQuorumEvent implements Event {
 
-	Quorum quorum = null; 
-	
+public class SetQuorumEvent implements Event, EventFactory {
+
+	public static final String kId = "Quorumevent"; //kid for our event
+
+	Quorum quorum = null;
+
 	public SetQuorumEvent(String min, String max) {
 		this.quorum = new Quorum(min, max);
 	}
@@ -25,6 +29,16 @@ public class SetQuorumEvent implements Event {
 
 	public Quorum getQuorum() {
 		return quorum;
+	}
+	/**
+	 * Creates a new quorum event with the specified number of players
+	 * @param sktEvent event passed in from button (Ex: 4players)
+	 * @return a new Quorum Event
+	 */
+	public Event createEvent(SocketMessage sktEvent) {
+		//need to get the first character, that will be min and max
+		String kId = sktEvent.toString().substring(0, 1);
+		return new SetQuorumEvent(kId, kId);
 	}
 
 }

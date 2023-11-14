@@ -13,7 +13,7 @@ import coms362.cards.socket.SocketMessage;
 /**
  * An external (inbound) event. This event is Synthesized by the receiving webSocket when a new
  * connection is detected.
- * 
+ *
  * @author Robert Ward
  */
 public class ConnectEvent implements SysEvent, Event {
