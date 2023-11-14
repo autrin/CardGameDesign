@@ -7,6 +7,12 @@ import coms362.cards.abstractcomp.Table;
 import coms362.cards.model.Quorum;
 import coms362.cards.socket.SocketMessage;
 
+<<<<<<< HEAD
+=======
+public class SetQuorumEvent implements Event , EventFactory{
+
+	public static final String kId = "quorumevent";
+>>>>>>> d3649bf76eb63928a7211efe814b805f7af16e8c
 
 public class SetQuorumEvent implements Event, EventFactory {
 
