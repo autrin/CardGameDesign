@@ -76,10 +76,10 @@ public class ViewFacade {
         item.setRemoteId(rval);
     }
     
-    public void register(VariableButton item) { //TODO
-    //     String rval = "";
-    //     remoteIdLookup.put(item.selector, rval = Integer.toString(IdGenerator.next()));
-    //     item.setRemoteId(rval);
+    public void register(VariableButton item) {
+        String rval = item.getLabel();
+        remoteIdLookup.put(item.selector, rval);
+        item.setRemoteId(rval);
     }
 
     public String getRemoteId(String selector) {

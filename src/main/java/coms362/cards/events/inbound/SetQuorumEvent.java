@@ -6,7 +6,9 @@ import coms362.cards.abstractcomp.RulesDispatch;
 import coms362.cards.abstractcomp.Table;
 import coms362.cards.model.Quorum;
 
-public class SetQuorumEvent implements Event {
+public class SetQuorumEvent implements Event , EventFactory{
+
+	public static final String kId = "quorumevent";
 
 	Quorum quorum = null; 
 	

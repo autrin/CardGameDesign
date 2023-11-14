@@ -9,7 +9,11 @@ import coms362.cards.model.PregameSetup;
 import coms362.cards.model.Quorum;
 import coms362.cards.socket.SocketMessage;
 
+<<<<<<< HEAD
 public class SelectGameEvent implements SysEvent, Event, EventFactory {
+=======
+public class SelectGameEvent implements SysEvent, Event, EventFactory{
+>>>>>>> 1606740ce2bbc9e0769812119a474884c0c8a82c
 	
 	private String selection;
 	private Quorum quorum;
