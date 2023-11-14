@@ -8,6 +8,8 @@ import coms362.cards.model.Quorum;
 
 public class SetQuorumEvent implements Event , EventFactory{
 
+	public static final String kId = "quorumevent";
+
 	Quorum quorum = null; 
 	
 	public SetQuorumEvent(String min, String max) {
