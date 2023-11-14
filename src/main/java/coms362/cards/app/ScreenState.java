@@ -6,11 +6,12 @@ public class ScreenState {
     private ArrayList<ArrayList<String>> remoteIDs = new ArrayList<>();
 
     public void append(ArrayList<String> screen) {//TODO
-        
+        remoteIDs.add(screen);
     }
 
     public boolean hasMore(){ //TODO
-        return false;
+
+        // return remoteIDs.hasNext();
     }
 
     public ArrayList<String> currentObjects(){
