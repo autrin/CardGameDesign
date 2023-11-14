@@ -32,7 +32,8 @@ public class ViewFacade {
     private ViewFactory factory;
     private List<View> views = new ArrayList<View>();
     private Map<String, String> remoteIdLookup = new HashMap<String, String>();
-
+    private ScreenState state;
+    
     public ViewFacade(ViewFactory factory) {
         this.factory = factory;
     }
@@ -75,11 +76,11 @@ public class ViewFacade {
         item.setRemoteId(rval);
     }
     
-    // public void register(VariableButton item) {
+    public void register(VariableButton item) { //TODO
     //     String rval = "";
     //     remoteIdLookup.put(item.selector, rval = Integer.toString(IdGenerator.next()));
     //     item.setRemoteId(rval);
-    // }
+    }
 
     public String getRemoteId(String selector) {
         return remoteIdLookup.get(selector);
