@@ -5,24 +5,30 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class ScreenState {
+
     private Queue<ArrayList<String>> remoteIDs = new LinkedList<>();
 
-    public void append(ArrayList<String> screen) {//TODO
+    public void append(ArrayList<String> screen) {
         remoteIDs.add(screen);
     }
 
-    public boolean hasMore(){ //TODO
+    public boolean hasMore() {
 
-        // return remoteIDs.hasNext();
-        return false; //TODO
+        return remoteIDs.isEmpty();
     }
 
-    public ArrayList<String> currentObjects(){
-        return null; //TODO
+    /**
+     * observing the current list
+     */
+    public ArrayList<String> currentObjects() {
+        return remoteIDs.peek();
     }
 
-    public ArrayList<String> nextObjects(){
-        return null; //TODO
+    /**
+     * gets and removes the next list
+     */
+    public ArrayList<String> nextObjects() {
+        return remoteIDs.poll();
     }
 
 }
