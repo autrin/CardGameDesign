@@ -7,11 +7,14 @@ import coms362.cards.abstractcomp.Table;
 import coms362.cards.app.GameController;
 import coms362.cards.model.PregameSetup;
 import coms362.cards.model.Quorum;
+import coms362.cards.socket.SocketMessage;
 
-public class SelectGameEvent implements SysEvent, Event {
+public class SelectGameEvent implements SysEvent, Event, EventFactory {
 	
 	private String selection;
 	private Quorum quorum;
+	
+	public static final String kId = "selectgameevent";
 	
 	public SelectGameEvent (String gameId){
 		selection = gameId;
@@ -41,6 +44,12 @@ public class SelectGameEvent implements SysEvent, Event {
 
 	public Quorum getQuorum() {
 		return quorum;
+	}
+	
+	public Event createEvent(SocketMessage skEvent)
+	{
+		// Work in progress
+		return new SelectGameEvent(kId, kId);
 	}
 
 }
