@@ -1,9 +1,11 @@
 package coms362.cards.app;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class ScreenState {
-    private ArrayList<ArrayList<String>> remoteIDs = new ArrayList<>();
+    private Queue<ArrayList<String>> remoteIDs = new LinkedList<>();
 
     public void append(ArrayList<String> screen) {//TODO
         remoteIDs.add(screen);
@@ -12,6 +14,7 @@ public class ScreenState {
     public boolean hasMore(){ //TODO
 
         // return remoteIDs.hasNext();
+        return false; //TODO
     }
 
     public ArrayList<String> currentObjects(){
