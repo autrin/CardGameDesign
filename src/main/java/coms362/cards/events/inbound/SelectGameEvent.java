@@ -8,7 +8,7 @@ import coms362.cards.app.GameController;
 import coms362.cards.model.PregameSetup;
 import coms362.cards.model.Quorum;
 
-public class SelectGameEvent implements SysEvent, Event {
+public class SelectGameEvent implements SysEvent, Event, EventFactory{
 	
 	private String selection;
 	private Quorum quorum;
