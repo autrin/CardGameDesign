@@ -1,12 +1,13 @@
 package coms362.cards.model;
 
+import coms362.cards.events.inbound.SelectGameEvent;
+
 public class SelectGameButton extends VariableButton {
     
-    private String kSelectorBase;
+    private final static String kSelectorBase = "SelectGame";
 
     public SelectGameButton(String selector, String evtName, String label, Location location) {
-        super(selector, evtName, label, location);
-        // TODO Auto-generated constructor stub
+        super(kSelectorBase + label, SelectGameEvent.kId, label, location);
     }
 
 }

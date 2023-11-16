@@ -8,6 +8,7 @@ import coms362.cards.app.GameController;
 import coms362.cards.app.GameFactoryFactory;
 import coms362.cards.events.inbound.ConnectEvent;
 import coms362.cards.events.inbound.EventUnmarshallers;
+import coms362.cards.events.inbound.SelectGameEvent;
 import coms362.cards.socket.CardSocketCreator;
 import coms362.cards.socket.ServletContextHolder;
 import coms362.cards.streams.InBoundQueue;
@@ -61,6 +62,7 @@ public class Bootstrap {
     private void registerGameRules() {
         EventUnmarshallers handlers = EventUnmarshallers.getInstance();
         handlers.registerHandler(ConnectEvent.kId, (Class) ConnectEvent.class);
+        handlers.registerHandler(SelectGameEvent.kId, (Class) SelectGameEvent.class);
     }
 
     public void startServer() throws Exception {

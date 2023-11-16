@@ -90,5 +90,6 @@ implements Rules, RulesDispatch {
 		handlers.registerHandler(CardEvent.kId, (Class) CardEvent.class); 
 		handlers.registerHandler(GameRestartEvent.kId, (Class) GameRestartEvent.class); 
 		handlers.registerHandler(NewPartyEvent.kId, (Class) NewPartyEvent.class);
+		handlers.registerHandler(SetQuorumEvent.kId, (Class) SetQuorumEvent.class);
 	}
 }

@@ -37,8 +37,9 @@ public class SetQuorumEvent implements Event, EventFactory {
 	 */
 	public Event createEvent(SocketMessage sktEvent) {
 		//need to get the first character, that will be min and max
-		String kId = sktEvent.toString().substring(0, 1);
-		return new SetQuorumEvent(kId, kId);
+		int secondIndex = sktEvent.toString().indexOf(' ');
+		String playerCount = sktEvent.toString().substring(0, secondIndex);
+		return new SetQuorumEvent(playerCount, playerCount);
 	}
 
 }
