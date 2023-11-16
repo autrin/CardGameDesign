@@ -46,10 +46,10 @@ public class SelectGameEvent implements SysEvent, Event, EventFactory {
 		return quorum;
 	}
 	
-	public Event createEvent(SocketMessage skEvent)
-	{
-		// Work in progress
-		return new SelectGameEvent(kId, kId);
-	}
+	//public Event createEvent(SocketMessage skEvent)
+	//{
+	//	// Work in progress
+	//	return new SelectGameEvent(kId, kId);
+	//}
 
 }
