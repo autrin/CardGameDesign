@@ -56,7 +56,7 @@ implements Rules, RulesDispatch {
 	
 	public Move apply(NewPartyEvent e, Table table, Player player){
 		if (e.getRole() == PartyRole.player){
-			return new CreatePlayerMove( e.getPosition(), e.getSocketId());
+			return new CreatePlayerMove( e.getPosition(), e.getSocketId(), player);
 		}
 		return new DoNothingMove();
 	}
@@ -70,7 +70,7 @@ implements Rules, RulesDispatch {
 		System.out.println("Rules apply ConnectEvent "+e);
 		if (! table.getQuorum().exceeds(table.getPlayers().size()+1)){
 			if (e.getRole() == PartyRole.player){				
-				rval =  new CreatePlayerMove( e.getPosition(), e.getSocketId());
+				rval =  new CreatePlayerMove( e.getPosition(), e.getSocketId(), player);
 			}			
 		}
 		System.out.println("PickupRules connectHandler rval = "+rval);
