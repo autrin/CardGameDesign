@@ -32,7 +32,7 @@ public class SetQuorumEvent implements Event, EventFactory {
 	}
 	/**
 	 * Creates a new quorum event with the specified number of players
-	 * @param sktEvent event passed in from button (Ex: 4players)
+	 * @param sktEvent event passed in from button (Ex: 4 players)
 	 * @return a new Quorum Event
 	 */
 	public Event createEvent(SocketMessage sktEvent) {

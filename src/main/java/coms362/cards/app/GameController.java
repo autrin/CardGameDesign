@@ -7,16 +7,22 @@ import coms362.cards.abstractcomp.GameFactory;
 import coms362.cards.abstractcomp.Rules;
 import coms362.cards.abstractcomp.Table;
 import coms362.cards.events.inbound.ConnectEvent;
+import coms362.cards.events.inbound.DealEvent;
 import coms362.cards.events.inbound.EndPlayEvent;
 import coms362.cards.events.inbound.Event;
+import coms362.cards.events.inbound.EventUnmarshallers;
 import coms362.cards.events.inbound.InvalidGameSelectionEvent;
 import coms362.cards.events.inbound.NewPartyEvent;
 import coms362.cards.events.inbound.SelectGameEvent;
 import coms362.cards.events.inbound.SetQuorumEvent;
 import coms362.cards.events.inbound.SysEvent;
+import coms362.cards.events.remote.CreateButtonRemote;
 import coms362.cards.game.PartyRole;
+import coms362.cards.game.PlayerView;
+import coms362.cards.model.Location;
 import coms362.cards.model.PregameSetup;
 import coms362.cards.model.Quorum;
+import coms362.cards.model.SelectGameButton;
 import coms362.cards.streams.InBoundQueue;
 import coms362.cards.streams.RemoteTableGateway;
 
@@ -43,6 +49,7 @@ public class GameController {
     private InBoundQueue inQ;
     private RemoteTableGateway remote;
     private GameFactoryFactory abstractFactory;
+
     Stack<Event> deferred = new Stack<Event>();
     PregameSetup game = new PregameSetup();
 
@@ -90,9 +97,21 @@ public class GameController {
 
         String selection = "";
         if (e.getParam("host") != null) {
-            if ((selection = e.getParam("game")) != null) {
-                inQ.pushBack(new SelectGameEvent(selection, e));
+            SelectGameButton selectGameButton = new SelectGameButton("PU52MP", new Location(50, 50));
+
+            EventUnmarshallers handlers = EventUnmarshallers.getInstance();
+            handlers.registerHandler(SelectGameEvent.kId, (Class)SelectGameEvent.class);
+            
+            PlayerView view = new PlayerView(0, e.getSocketId(), remote);
+            try {
+                view.send(new CreateButtonRemote(selectGameButton));
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
             }
+            // if ((selection = e.getParam("game")) != null) {
+            //     inQ.pushBack(new SelectGameEvent(selection, e));
+            // }
         }
 
         String pnum = null;

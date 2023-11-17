@@ -34,7 +34,7 @@ public class ConnectEvent implements SysEvent, Event {
         params = e;
         this.socket = "" + e.getSocketId();
         System.out.println("Constructing Connect event for socket " + socket);
-        quorum = new Quorum(e.get("min"), e.get("max"));
+        // quorum = new Quorum(e.get("min"), e.get("max"));
         String pos;
         if ((pos = e.get("player")) != null) {
             role = PartyRole.player;
