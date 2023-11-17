@@ -32,7 +32,6 @@ public class ViewFacade {
     private ViewFactory factory;
     private List<View> views = new ArrayList<View>();
     private Map<String, String> remoteIdLookup = new HashMap<String, String>();
-    private ScreenState state;
     
     public ViewFacade(ViewFactory factory) {
         this.factory = factory;
