@@ -62,7 +62,6 @@ public class Bootstrap {
     private void registerGameRules() {
         EventUnmarshallers handlers = EventUnmarshallers.getInstance();
         handlers.registerHandler(ConnectEvent.kId, (Class) ConnectEvent.class);
-        handlers.registerHandler(SelectGameEvent.kId, (Class) SelectGameEvent.class);
     }
 
     public void startServer() throws Exception {

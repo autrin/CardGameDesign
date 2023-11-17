@@ -14,7 +14,7 @@ public class SelectGameEvent implements SysEvent, Event, EventFactory {
 	private String selection;
 	private Quorum quorum;
 	
-	public static final String kId = "selectgameevent";
+	public static final String kId = "SelectGameEvent";
 	
 	public SelectGameEvent (String gameId){
 		selection = gameId;
@@ -46,9 +46,9 @@ public class SelectGameEvent implements SysEvent, Event, EventFactory {
 		return quorum;
 	}
 	
-	public Event createEvent(SocketMessage sktEvent)
+	public static Event createEvent(SocketMessage sktMsg)
 	{
-		return new SelectGameEvent(sktEvent.toString());
+		return new SelectGameEvent(sktMsg.get("id"));
 	}
 
 }

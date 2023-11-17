@@ -32,13 +32,14 @@ public class SetQuorumEvent implements Event, EventFactory {
 	}
 	/**
 	 * Creates a new quorum event with the specified number of players
-	 * @param sktEvent event passed in from button (Ex: 4players)
+	 * @param sktEvent event passed in from button (Ex: 4 players)
 	 * @return a new Quorum Event
 	 */
-	public Event createEvent(SocketMessage sktEvent) {
+	public static Event createEvent(SocketMessage sktEvent) {
 		//need to get the first character, that will be min and max
-		int secondIndex = sktEvent.toString().indexOf(' ');
-		String playerCount = sktEvent.toString().substring(0, secondIndex);
+		String id = sktEvent.get("id");
+		int secondIndex = id.indexOf(' ');
+		String playerCount = id.substring(0, secondIndex);
 		return new SetQuorumEvent(playerCount, playerCount);
 	}
 

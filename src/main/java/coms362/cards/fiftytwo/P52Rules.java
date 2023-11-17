@@ -9,6 +9,7 @@ import coms362.cards.abstractcomp.Table;
 import coms362.cards.events.inbound.CardEvent;
 import coms362.cards.events.inbound.ConnectEvent;
 import coms362.cards.events.inbound.DealEvent;
+import coms362.cards.events.inbound.DetermineQuorumEvent;
 import coms362.cards.events.inbound.Event;
 import coms362.cards.events.inbound.EventUnmarshallers;
 import coms362.cards.events.inbound.GameRestartEvent;
@@ -18,6 +19,7 @@ import coms362.cards.events.inbound.SetQuorumEvent;
 import coms362.cards.game.CreatePlayerMove;
 import coms362.cards.game.PartyRole;
 import coms362.cards.game.SetQuorumMove;
+import coms362.cards.game.ShowQuorumButtonMove;
 import coms362.cards.model.Card;
 import coms362.cards.model.Pile;
 import coms362.cards.game.DoNothingMove;
@@ -62,7 +64,8 @@ implements Rules, RulesDispatch {
 	}
 	
 	public Move apply(SetQuorumEvent e, Table table, Player player){
-		return new SetQuorumMove(e.getQuorum());
+		int[] counts = {2, 3, 4};
+		return new SetQuorumMove(e.getQuorum(), counts);
 	}
 	
 	public Move apply(ConnectEvent e, Table table, Player player){
@@ -77,6 +80,11 @@ implements Rules, RulesDispatch {
 		return rval;
 	}
 
+	public Move apply(DetermineQuorumEvent e, Table table, Player player){
+		int[] counts = {2, 3, 4};
+		System.out.println("test");
+		return new ShowQuorumButtonMove(counts);
+	}
 	/**
 	 * We rely on Rules to register the appropriate input events with
 	 * the unmarshaller. This avoids excessive complexity in the 
