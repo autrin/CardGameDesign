@@ -48,9 +48,7 @@ public class SelectGameEvent implements SysEvent, Event, EventFactory {
 	
 	public static Event createEvent(SocketMessage sktMsg)
 	{
-		String id = sktMsg.get("id");
-		
-		return new SelectGameEvent(id, sktMsg.);
+		return new SelectGameEvent(sktMsg.get("id"));
 	}
 
 }
