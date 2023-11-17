@@ -46,9 +46,9 @@ public class SelectGameEvent implements SysEvent, Event, EventFactory {
 		return quorum;
 	}
 	
-	public Event createEvent(SocketMessage sktMsg)
+	public static Event createEvent(SocketMessage sktMsg)
 	{
-		return new SelectGameEvent(Integer.toString(sktMsg.getSocketId()));
+		return new SelectGameEvent(sktMsg.get("id"));
 	}
 
 }

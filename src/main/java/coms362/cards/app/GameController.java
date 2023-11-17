@@ -17,6 +17,7 @@ import coms362.cards.events.inbound.SelectGameEvent;
 import coms362.cards.events.inbound.SetQuorumEvent;
 import coms362.cards.events.inbound.SysEvent;
 import coms362.cards.events.remote.CreateButtonRemote;
+import coms362.cards.events.remote.HideButtonRemote;
 import coms362.cards.game.PartyRole;
 import coms362.cards.game.PlayerView;
 import coms362.cards.model.Location;
@@ -52,6 +53,7 @@ public class GameController {
 
     Stack<Event> deferred = new Stack<Event>();
     PregameSetup game = new PregameSetup();
+    private PlayerView hostView;
 
     public GameController(InBoundQueue inQ, RemoteTableGateway gateway,
             GameFactoryFactory gFFactory) {
@@ -97,21 +99,21 @@ public class GameController {
 
         String selection = "";
         if (e.getParam("host") != null) {
-            SelectGameButton selectGameButton = new SelectGameButton("PU52MP", new Location(50, 50));
+
 
             EventUnmarshallers handlers = EventUnmarshallers.getInstance();
             handlers.registerHandler(SelectGameEvent.kId, (Class)SelectGameEvent.class);
             
-            PlayerView view = new PlayerView(0, e.getSocketId(), remote);
-            try {
-                view.send(new CreateButtonRemote(selectGameButton));
-            } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
+            hostView = new PlayerView(0, e.getSocketId(), remote);
+            String[] games = GameFactoryFactory.getGameIds();
+            for (int i = 0; i < games.length; i++){
+                try {
+                    SelectGameButton selectGameButton = new SelectGameButton(games[i], new Location(250, 50 * (i + 1)));
+                    hostView.send(new CreateButtonRemote(selectGameButton));
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
-            // if ((selection = e.getParam("game")) != null) {
-            //     inQ.pushBack(new SelectGameEvent(selection, e));
-            // }
         }
 
         String pnum = null;
@@ -127,8 +129,18 @@ public class GameController {
             game.setSelected(selected);
             // without other information force to a maximum of 4
             // To give the rules a chance to supply game specific limits.
-            Quorum pushQ = (e.hasQuorum()) ? e.getQuorum() : new Quorum(4, 4);
-            deferred.insertElementAt(new SetQuorumEvent(pushQ), 0);
+            // Quorum pushQ = (e.hasQuorum()) ? e.getQuorum() : new Quorum(1, 1);
+            if (e.hasQuorum()){
+                deferred.insertElementAt(new SetQuorumEvent(e.getQuorum()), 0);
+            }
+            String[] games = GameFactoryFactory.getGameIds();
+            for (int i = 0; i < games.length; i++){
+                try {
+                    hostView.send(new HideButtonRemote(games[i]));
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
         } else {
             // we need to inform the alleged host now
             System.out.format("GameController. SelectGame : %s is not a supported game.", selected);

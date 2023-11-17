@@ -3,6 +3,7 @@ package coms362.cards.abstractcomp;
 import coms362.cards.events.inbound.CardEvent;
 import coms362.cards.events.inbound.ConnectEvent;
 import coms362.cards.events.inbound.DealEvent;
+import coms362.cards.events.inbound.DetermineQuorumEvent;
 import coms362.cards.events.inbound.EndPlayEvent;
 import coms362.cards.events.inbound.GameRestartEvent;
 import coms362.cards.events.inbound.InitGameEvent;
@@ -47,5 +48,7 @@ public interface RulesDispatch {
     public Move apply(ConnectEvent e, Table table, Player player);
 
     public Move apply(SetQuorumEvent e, Table table, Player player);
+
+    public Move apply(DetermineQuorumEvent e, Table table, Player player);
 
 }

@@ -5,6 +5,7 @@ import coms362.cards.abstractcomp.Move;
 import coms362.cards.abstractcomp.Rules;
 import coms362.cards.abstractcomp.Table;
 import coms362.cards.abstractcomp.ViewFactory;
+import coms362.cards.events.inbound.DetermineQuorumEvent;
 import coms362.cards.events.inbound.Event;
 import coms362.cards.events.inbound.InitGameEvent;
 import coms362.cards.streams.InBoundQueue;
@@ -29,8 +30,8 @@ public class MatchController {
         // this is match setup ... it depends on which game
         // was selected. We initialize for a new match of the
         // already selected game
-
         Event e = null;
+        inQ.add(new DetermineQuorumEvent());
         while (!table.partiesReady()) {
             try {
                 e = inQ.take(); // we are waiting for/looking for new connections

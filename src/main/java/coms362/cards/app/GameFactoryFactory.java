@@ -13,7 +13,7 @@ public class GameFactoryFactory {
     static final String PU52MP = "PU52MP";
     static final String PU52SP = "PU52SP";
 
-    String gameIds[] = {PU52MP, PU52SP};
+    static String gameIds[] = {PU52MP, PU52SP};
     List<String> supported = Arrays.asList(gameIds);
 
     public GameFactory getGameFactory(String selector) {
@@ -27,6 +27,10 @@ public class GameFactoryFactory {
 
     public boolean isValidSelection(String gameId) {
         return supported.contains(gameId);
+    }
+
+    public static String[] getGameIds(){
+        return gameIds;
     }
 
 }
