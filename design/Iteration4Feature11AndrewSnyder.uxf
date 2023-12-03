@@ -1,0 +1,91 @@
+<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><element><id>UMLClass</id><coordinates><x>343</x><y>273</y><w>238</w><h>63</h></coordinates><panel_attributes>WarWinMove
+--
++ WarDecisionMove(victorNumber: int)
++ apply(table: Table): void
++ apply(views: ViewFacade): void
+fg=red</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>70</x><y>273</y><w>224</w><h>56</h></coordinates><panel_attributes>WarRules
+--
+apply(e: CardEvent, table: Table, player: Player): Move
+fg=red</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>287</x><y>287</y><w>70</w><h>35</h></coordinates><panel_attributes>lt=&lt;-
+creates
+m1=1
+m2=1
+fg=red</panel_attributes><additional_attributes>80;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>623</x><y>217</y><w>217</w><h>231</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+Table
+--
++ addPile(pile: Pile): void
++ addPlayer(p: Player): void
++ getPile(string: String): Pile
++ removeFromPile(string: String, c: Card): void
++ addToPile(string: String, c: Card): void
++ addToScore(p: Player, i: int): int
++ isMatchOver(): boolean
++ setMatchOver(over: boolean): void
++ getRandom(): Random
++ getHost(): Party
++ partiesReady(): boolean
++ getCurrentPlayer(): Player
++ setQuorum(quorum Quorum): void
++ getQuorum(): Quorum
++ getPlayers(): Collection&lt;Player&gt;
++ getPlayerMap(): Map&lt;Integer, Player&gt;
++ createPlayer(pos: Integer, socketId: String): void
++ lookupPlayer(socketId: String): Player
++ getPlayer(pos: Integer): Player</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>574</x><y>294</y><w>63</w><h>28</h></coordinates><panel_attributes>lt=&lt;.
+fg=red
+m1=1
+m2=1</panel_attributes><additional_attributes>70;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>224</x><y>231</y><w>413</w><h>56</h></coordinates><panel_attributes>lt=&lt;.
+fg=red
+m1=1
+m2=1</panel_attributes><additional_attributes>570;10;10;10;10;60</additional_attributes></element><element><id>UMLClass</id><coordinates><x>364</x><y>385</y><w>196</w><h>175</h></coordinates><panel_attributes>ViewFacade
+--
+- factory: ViewFactory
+- views: ArrayList&lt;View&gt; 
+- remoteIdLookup : HashMap&lt;String, String&gt;
+--
++ createView(role: PartyRole,
+                            pos: Integer,
+                            socketId: String, 
+                            gw: RemoteTableGateway): View
++ getDefaultView(): View
++ send(cmd: Marshalls): void
++ add(view: View): void
++ register(item: PresentationObject): void
++ getRemoteId(selector: String): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>448</x><y>329</y><w>28</w><h>70</h></coordinates><panel_attributes>lt=&lt;.
+fg=red
+m1=1
+m2=1</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>49</x><y>77</y><w>280</w><h>140</h></coordinates><panel_attributes>RulesDispatchBase
+--
++ apply(e: CardEvent, table: Table, player: Player): Move
++ apply(e: DealEvent, table: Table, player: Player): Move
++ apply(e: EndPlayEvent, table: Table, player: Player): Move
++ apply(e: InitGameEvent, table: Table, player: Player): Move
++ apply(e: SelectGameEvent, table: Table, player: Player): Move
++ apply(e: GameRestartEvent, table: Table, player: Player): Move
++ apply(e: NewPartyEvent, table: Table, player: Player): Move
++ apply(e: ConnectEvent, table: Table, player: Player): Move
++ apply(e: SetQuorumEvent, table: Table, player: Player): Move
++ apply(e: DetermineQuorumEvent, table: Table, player: Player): Move</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>147</x><y>210</y><w>21</w><h>77</h></coordinates><panel_attributes>lt=&lt;&lt;-
+fg=red</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>385</x><y>126</y><w>133</w><h>70</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Move
+--
++ apply(table:Table): void
++ apply(veiws:ViewFacade): void
++ isMatchEnd(): boolean
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>441</x><y>189</y><w>21</w><h>98</h></coordinates><panel_attributes>lt=&lt;&lt;.
+fg=red</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>UMLClass</id><coordinates><x>350</x><y>0</y><w>245</w><h>77</h></coordinates><panel_attributes>PlayController
+--
+-inQ: InBoundQueue
+-rules: Rules
+--
++play(table: Table, player: Player, views: ViewFacade): Event
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>462</x><y>70</y><w>28</w><h>70</h></coordinates><panel_attributes>lt=&lt;-
+m1=*
+m2=1</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>140</x><y>385</y><w>203</w><h>49</h></coordinates><panel_attributes>P52DealButton
+--
++ kSelector: String
++ P52DealButton(label: String, location: Location)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>294</x><y>329</y><w>112</w><h>70</h></coordinates><panel_attributes>lt=&lt;.
+fg=red
+m1=1
+m2=1</panel_attributes><additional_attributes>10;80;10;40;130;40;130;10</additional_attributes></element></diagram>
