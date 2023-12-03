@@ -1,0 +1,222 @@
+<diagram program="umletino" version="15.1"><zoom_level>5</zoom_level><help_text>Space for diagram notesLocation</help_text><element><id>UMLClass</id><coordinates><x>335</x><y>505</y><w>105</w><h>160</h></coordinates><panel_attributes>Card
+--
++suits: String[]
+-suit: String
+-rank: int
+-x: int
+-y: int
+-rotate: int
+-faceUp: boolean
+--
++getX(): int
++setX(x: int): void
++getY(): int
++setY(y: int): void
++getRotate(): int
++setRotate(rotate: int)
++isFaceUp(): boolean
++setFaceUp(faceUp: boolean): void
++getSuit(): String
++setSuit(suit: String): void
++getRank(): int
++setRank(rank: int): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>165</x><y>525</y><w>105</w><h>95</h></coordinates><panel_attributes>Pile
+--
+#cards: HashMap&lt;String,Card&gt;
+-faceUp: boolean
+-loc: Location
+--
++getLocation(): Location
++moveTo(loc: Location): void
++getFaceUp(): boolean
++setFaceUp(faceUp:boolean): void
++addCard(c: Card): void
++getCard(id: String): Card
++getCards(): Collection&lt;Card&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>215</x><y>400</y><w>110</w><h>65</h></coordinates><panel_attributes>PresentationObject
+--
+- remoteId: String
+--
++ selector: String
++ PresentationObject()
++ PresentationObject(selector: String)
++ setRemoteId(remoteId: String):void
++ getRemoteId(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>430</y><w>35</w><h>105</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>50;10;10;10;10;190</additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>460</y><w>95</w><h>55</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;50;170;50;170;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>475</x><y>565</y><w>100</w><h>35</h></coordinates><panel_attributes>DoNothingMove
+--
++ apply(table:Table): void
++ apply(view: ViewFacade): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>485</x><y>405</y><w>95</w><h>45</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Move
+--
++apply(table:Table): void
++apply(veiws:ViewFacade): void
++isMatchEnd(): boolean
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>500</x><y>445</y><w>15</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;240</additional_attributes></element><element><id>UMLClass</id><coordinates><x>410</x><y>205</y><w>155</w><h>165</h></coordinates><panel_attributes>&lt;&lt;Interface&gt;&gt;
+Table
+--
++ addPile(pile: Pile): void
++ addPlayer(p: Player): void
++ getPile(string: String): Pile
++ removeFromPile(string: String, c: Card): void
++ addToPile(string: String, c: Card): void
++ addToScore(p: Player, i: int): int
++ isMatchOver(): boolean
++ setMatchOver(over: boolean): void
++ getRandom(): Random
++ getHost(): Party
++ partiesReady(): boolean
++ getCurrentPlayer(): Player
++ setQuorum(quorum Quorum): void
++ getQuorum(): Quorum
++ getPlayers(): Collection&lt;Player&gt;
++ getPlayerMap(): Map&lt;Integer, Player&gt;
++ createPlayer(pos: Integer, socketId: String): void
++ lookupPlayer(socketId: String): Player
++ getPlayer(pos: Integer): Player</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>610</x><y>50</y><w>100</w><h>45</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Rules
+--
++eval(Event, Table, Player): Move
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>210</x><y>245</y><w>140</w><h>125</h></coordinates><panel_attributes>ViewFacade
+--
+- factory: ViewFactory
+- views: ArrayList&lt;View&gt; 
+- remoteIdLookup : HashMap&lt;String, String&gt;
+--
++ createView(role: PartyRole,
+                            pos: Integer,
+                            socketId: String, 
+                            gw: RemoteTableGateway): View
++ getDefaultView(): View
++ send(cmd: Marshalls): void
++ add(view: View): void
++ register(item: PresentationObject): void
++ getRemoteId(selector: String): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>690</x><y>500</y><w>105</w><h>55</h></coordinates><panel_attributes>CreatePlayerMove
+--
+-position: Integer
+- socketID: String
+- player: Player
++apply(table: Table): void
++ apply(veiws: ViewFacade): void
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>575</x><y>420</y><w>185</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;350;10;350;160</additional_attributes></element><element><id>UMLClass</id><coordinates><x>485</x><y>635</y><w>80</w><h>60</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Player
+--
++addToScore(amount: int): int
++getPlayerNum(): int
++getSocketId(): String
++getScore(): int
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>560</x><y>550</y><w>245</w><h>155</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+m2=1</panel_attributes><additional_attributes>10;280;460;280;460;10</additional_attributes></element><element><id>Relation</id><coordinates><x>560</x><y>270</y><w>220</w><h>240</h></coordinates><panel_attributes>lt=&lt;.
+m1=1
+m2=1</panel_attributes><additional_attributes>10;10;410;10;410;460</additional_attributes></element><element><id>Relation</id><coordinates><x>330</x><y>365</y><w>415</w><h>145</h></coordinates><panel_attributes>lt=&lt;.
+m1=1
+m2=1</panel_attributes><additional_attributes>10;10;10;50;800;50;800;270</additional_attributes></element><element><id>UMLClass</id><coordinates><x>655</x><y>125</y><w>205</w><h>115</h></coordinates><panel_attributes>fg=red
+WarRules
+--
+- P1_PILE: String
+- P2_PILE: String
+--
++ eval(nextE: Event, table: Table, player: Player): Move
++ apply(e: CardEvent, table: Table, player: Player): Move
++ apply(e: DealEvent, table: Table, player: Player): Move
++ apply(e: InitGameEvent, table: Table, player: Player): Move
++ apply(e: NewPartyEvent, table: Table, player: Player): Move
++ apply(e: SetQuorumEvent, table: Table, player: Player): Move
++ apply(e: ConnectEvent, table: Table, player: Player): Move
++ apply(e: DetermineQuorumEvent, table: Table, player: Player): Move
++ registerEvents(): void
++ isTie(card1:Card, card2:Card): boolean
++improperCardSelection(e: Event, table: Table, player: Player):Move</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>680</x><y>90</y><w>15</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;.
+fg=red</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>200</x><y>135</y><w>205</w><h>95</h></coordinates><panel_attributes>RulesDispatchBase
+--
++ apply(e: CardEvent, table: Table, player: Player): Move
++ apply(e: DealEvent, table: Table, player: Player): Move
++ apply(e: EndPlayEvent, table: Table, player: Player): Move
++ apply(e: InitGameEvent, table: Table, player: Player): Move
++ apply(e: SelectGameEvent, table: Table, player: Player): Move
++ apply(e: GameRestartEvent, table: Table, player: Player): Move
++ apply(e: NewPartyEvent, table: Table, player: Player): Move
++ apply(e: ConnectEvent, table: Table, player: Player): Move
++ apply(e: SetQuorumEvent, table: Table, player: Player): Move
++ apply(e: DetermineQuorumEvent, table: Table, player: Player): Move</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>210</x><y>15</y><w>205</w><h>100</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+RulesDispatch
+--
++ apply(e: CardEvent, table: Table, player: Player): Move
++ apply(e: DealEvent, table: Table, player: Player): Move
++ apply(e: EndPlayEvent, table: Table, player: Player): Move
++ apply(e: InitGameEvent, table: Table, player: Player): Move
++ apply(e: SelectGameEvent, table: Table, player: Player): Move
++ apply(e: GameRestartEvent, table: Table, player: Player): Move
++ apply(e: NewPartyEvent, table: Table, player: Player): Move
++ apply(e: ConnectEvent, table: Table, player: Player): Move
++ apply(e: SetQuorumEvent, table: Table, player: Player): Move
++ apply(e: DetermineQuorumEvent, table: Table, player: Player): Move</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>300</x><y>110</y><w>15</w><h>35</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>400</x><y>185</y><w>265</w><h>15</h></coordinates><panel_attributes>lt=&lt;&lt;-
+fg=red</panel_attributes><additional_attributes>10;10;510;10</additional_attributes></element><element><id>Relation</id><coordinates><x>410</x><y>25</y><w>335</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;.
+fg=red
+</panel_attributes><additional_attributes>10;20;650;20;650;200</additional_attributes></element><element><id>UMLClass</id><coordinates><x>585</x><y>575</y><w>95</w><h>45</h></coordinates><panel_attributes>fg=red
+WarMove
+--
++apply(table:Table): void
++apply(veiws:ViewFacade): void
++isMatchEnd(): boolean
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>445</y><w>65</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;.
+fg=red</panel_attributes><additional_attributes>10;10;10;40;110;40;110;260</additional_attributes></element><element><id>Relation</id><coordinates><x>575</x><y>205</y><w>90</w><h>215</h></coordinates><panel_attributes>lt=&lt;-
+m1=1..*
+m2=1
+fg=red</panel_attributes><additional_attributes>10;400;80;400;80;10;160;10</additional_attributes></element><element><id>Relation</id><coordinates><x>220</x><y>230</y><w>445</w><h>305</h></coordinates><panel_attributes>lt=&lt;-
+fg=red
+m1=1..*
+m2=1</panel_attributes><additional_attributes>10;590;10;490;320;490;320;300;830;300;830;10;870;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>520</x><y>480</y><w>95</w><h>60</h></coordinates><panel_attributes>fg=red
+WarCardMove
+--
+-c: Card
+-p: Player
+-fromPile: Pile
+-toPile: Pile
+--
++apply(table:Table): void
++apply(veiws:ViewFacade): void
++from</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>240</x><y>490</y><w>290</w><h>195</h></coordinates><panel_attributes>lt=&lt;-
+fg=red
+m2=1
+m1=1..*</panel_attributes><additional_attributes>10;260;10;370;430;370;430;10;560;10</additional_attributes></element><element><id>Relation</id><coordinates><x>555</x><y>445</y><w>15</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>515</y><w>70</w><h>145</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+m2=1
+fg=red</panel_attributes><additional_attributes>50;260;10;260;10;10;120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>525</x><y>205</y><w>430</w><h>430</h></coordinates><panel_attributes>lt=&lt;-
+fg=red
+m1=0..1
+m2=1</panel_attributes><additional_attributes>10;790;10;840;840;840;840;10;670;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>300</x><y>685</y><w>135</w><h>70</h></coordinates><panel_attributes>CardEvent
+--
++kId: String
+-id: String
+-socketId: String
+--
++ createEvent(sktMsg:SocketMessage): Event
++getId(): String
++dispatch(rules:RulesDispatch, table:Table,
+														player:Player):Move</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>265</x><y>365</y><w>25</w><h>45</h></coordinates><panel_attributes>lt=&lt;.
+m1=1
+m2=1..*</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>265</x><y>570</y><w>80</w><h>25</h></coordinates><panel_attributes>lt=&lt;-
+
+m1=1..*
+m2=*</panel_attributes><additional_attributes>140;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>225</y><w>40</w><h>60</h></coordinates><panel_attributes>lt=&lt;.
+m1=1..*
+m2=1</panel_attributes><additional_attributes>60;90;10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>360</x><y>225</y><w>135</w><h>220</h></coordinates><panel_attributes>lt=&lt;-
+
+m1=1..*
+m2=1</panel_attributes><additional_attributes>250;410;10;410;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>425</x><y>435</y><w>65</w><h>300</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
+m2=1</panel_attributes><additional_attributes>110;10;40;10;40;570;10;570</additional_attributes></element><element><id>Relation</id><coordinates><x>430</x><y>690</y><w>110</w><h>60</h></coordinates><panel_attributes>lt=&lt;.
+m1=1
+m2=1</panel_attributes><additional_attributes>190;10;190;90;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>690</x><y>565</y><w>95</w><h>55</h></coordinates><panel_attributes>fg=red
+WarInitMove
+--
+-table:Table
+-players: Map&lt;Integer, Player&gt;
+-title: String
+--
++apply(table:Table): void
++apply(veiws:ViewFacade): void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>575</x><y>440</y><w>125</w><h>135</h></coordinates><panel_attributes>lt=&lt;&lt;.
+fg=red</panel_attributes><additional_attributes>10;10;150;10;150;250;230;250</additional_attributes></element><element><id>Relation</id><coordinates><x>560</x><y>235</y><w>290</w><h>445</h></coordinates><panel_attributes>lt=&lt;.
+m1=1..*
+m2=1
+fg=red</panel_attributes><additional_attributes>10;860;550;860;550;10</additional_attributes></element></diagram>
