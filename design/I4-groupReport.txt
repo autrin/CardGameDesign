@@ -1,0 +1,8 @@
+Tasks 7 & 10: 
+    When there is a tie, isTie() in WarRules will return true by checking the cards through Pile.java. 
+    Facing up the cards is a resposibility of Pile.java. Also, when a player incorrecly selects a card while 
+    selecting their cards 3 times after a tie, they will be ignored and this is a rule of the game. This creates a 
+    Move, the DoNothingMove object.
+    If a non-winner of a war selects the center cards incorreclty, all the center cards go to the other player's pile. 
+    This is again a rule of the game done by improperCardSelection() i WarRules.java, which crates a move, a 
+    WarCardMove object. Then WarCardMove will transfer the center cards to the other player's pile.
