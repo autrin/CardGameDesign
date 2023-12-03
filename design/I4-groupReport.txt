@@ -8,4 +8,11 @@ Features 7 & 10 - Autrin Hakimi:
     WarCardMove object. Then WarCardMove will transfer the center cards to the other player's pile.
 
 Features 9 & 11 - Andrew Snyder:
-    Whenever a card is selected, and a card event is triggered, the WarRules class will move the card from its player's draw pile and add it to their war pile. It will then determine the winner of the match when the size of both player 1's war pile and player 2's war pile are equal. In the event of a winner, it will finally check if the losing player's discard pile is 0 and if so, return a WarWinMove with a victorNumber parameter as the winning player's number. When this move is then applied by the PlayController, it will use the setMatchOver() method of the Table class by setting it to true and then, when applied with the ViewFacade, it will send a new SetGameTitleRemote() to the ViewFacade with the title "Player X Wins" with X being replaced by the victorNumber instance variable. Then, in order to display a the deal button for the new game, as required by feature 11, the WarWinMove will also send a P52DealButton to the ViewFacade to display it for the next game.
+    Whenever a card is selected, and a card event is triggered, the WarRules class will move the card from its player's
+    draw pile and add it to their war pile. It will then determine the winner of the match when the size of both player 1's
+    war pile and player 2's war pile are equal. In the event of a winner, it will finally check if the losing player's discard
+    pile is 0 and if so, return a WarWinMove with a victorNumber parameter as the winning player's number. When this move is
+    then applied by the PlayController, it will use the setMatchOver() method of the Table class by setting it to true and then,
+    when applied with the ViewFacade, it will send a new SetGameTitleRemote() to the ViewFacade with the title "Player X Wins"
+    with X being replaced by the victorNumber instance variable. Then, in order to display a the deal button for the new game,
+    as required by feature 11, the WarWinMove will also send a P52DealButton to the ViewFacade to display it for the next game.
