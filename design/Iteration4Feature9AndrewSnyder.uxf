@@ -1,4 +1,6 @@
-<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><element><id>UMLClass</id><coordinates><x>343</x><y>273</y><w>238</w><h>63</h></coordinates><panel_attributes>WarWinMove
+<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><element><id>UMLClass</id><coordinates><x>343</x><y>273</y><w>238</w><h>77</h></coordinates><panel_attributes>WarWinMove
+--
+- victorNumber: int
 --
 + WarDecisionMove(victorNumber: int)
 + apply(table: Table): void
@@ -51,10 +53,10 @@ m2=1</panel_attributes><additional_attributes>570;10;10;10;10;60</additional_att
 + send(cmd: Marshalls): void
 + add(view: View): void
 + register(item: PresentationObject): void
-+ getRemoteId(selector: String): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>448</x><y>329</y><w>28</w><h>70</h></coordinates><panel_attributes>lt=&lt;.
++ getRemoteId(selector: String): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>448</x><y>343</y><w>28</w><h>56</h></coordinates><panel_attributes>lt=&lt;.
 fg=red
 m1=1
-m2=1</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>49</x><y>77</y><w>280</w><h>140</h></coordinates><panel_attributes>RulesDispatchBase
+m2=1</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>49</x><y>77</y><w>280</w><h>140</h></coordinates><panel_attributes>RulesDispatchBase
 --
 + apply(e: CardEvent, table: Table, player: Player): Move
 + apply(e: DealEvent, table: Table, player: Player): Move
