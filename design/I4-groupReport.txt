@@ -7,6 +7,12 @@ Features 2 & 8 - Sam Caldwell
     To ShowPlayerScore, where the player's score will be updated.
 
 Features 1 & 5 - Alexander Domowicz
+    On the user interface the user will select the "War" button from the menu of games. When the GameController is created,
+    a WarRules object instead of a P52Rules object is loaded in. From there the War game isSelected(). From there the the 
+    WarRules are gotten and initialized and then GameController calls MatchController.
+    When a player selects a card out of turn or from a pile that does not belong to them, they will be ignored and this is 
+    a rule of the game. This creates a Move, the DoNothingMove object. As the name implies, nothing will happen and nothing 
+    changes, the game stays at its current state and waits for a vaild move.
 
 Features 7 & 10 - Autrin Hakimi: 
     When there is a tie, isTie() in WarRules will return true by checking the cards through Pile.java. 
