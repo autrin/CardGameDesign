@@ -1,4 +1,4 @@
-Features 2 & 8 - Sam Caldwell
+Features 2 & 8 - Sam Caldwell:
     When the matchcontroller is created, it will be loaded in with a WarRules object, rather than the P52Rules. 
     From here, the WarRules will initiate the a WarInitMove move to begin initialize the game, once enough players
     are in the game.
@@ -6,7 +6,7 @@ Features 2 & 8 - Sam Caldwell
     This WarPlayer will be passed in through the new WarCardMove move, which will fetch the score of the player, and send it
     To ShowPlayerScore, where the player's score will be updated.
 
-Features 1 & 5 - Alexander Domowicz
+Features 1 & 5 - Alexander Domowicz:
     On the user interface the user will select the "War" button from the menu of games. When the GameController is created,
     a WarRules object instead of a P52Rules object is loaded in. From there the War game isSelected(). From there the the 
     WarRules are gotten and initialized and then GameController calls MatchController.
@@ -33,7 +33,7 @@ Features 9 & 11 - Andrew Snyder:
     with X being replaced by the victorNumber instance variable. Then, in order to display a the deal button for the new game,
     as required by feature 11, the WarWinMove will also send a P52DealButton to the ViewFacade to display it for the next game.
 
-Features 4 & 6 - John SchraderBachar
+Features 4 & 6 - John SchraderBachar:
     For features 4 and 6 I added a war rules game and implemented it similar to how P52Rules was implemented, allowing it to use events, quorums, in a similar way to P52. 
     After the QuorumEvent of Deal is sent, the class instatiates the two piles and their respective players. I also had my design extend the Table interface so that we could 
     get the addPile, getPlayers, and partiesReady in our classes to better facilitate the start of the game. My design is a good seperation of concerns because it only has 
