@@ -1,3 +1,11 @@
+Features 2 & 8 - Sam Caldwell
+    When the matchcontroller is created, it will be loaded in with a WarRules object, rather than the P52Rules. 
+    From here, the WarRules will initiate the a WarInitMove move to begin initialize the game, once enough players
+    are in the game.
+    The new class, WarPlayer, will be responsible for keeping track of each players score, similar to the P52Player class.
+    This WarPlayer will be passed in through the new WarCardMove move, which will fetch the score of the player, and send it
+    To ShowPlayerScore, where the player's score will be updated.
+
 Features 1 & 5 - Alexander Domowicz
 
 Features 7 & 10 - Autrin Hakimi: 
