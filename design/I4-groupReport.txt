@@ -26,3 +26,12 @@ Features 9 & 11 - Andrew Snyder:
     when applied with the ViewFacade, it will send a new SetGameTitleRemote() to the ViewFacade with the title "Player X Wins"
     with X being replaced by the victorNumber instance variable. Then, in order to display a the deal button for the new game,
     as required by feature 11, the WarWinMove will also send a P52DealButton to the ViewFacade to display it for the next game.
+
+Features 4 & 6 - John SchraderBachar
+    For features 4 and 6 I added a war rules game and implemented it similar to how P52Rules was implemented, allowing it to use events, quorums, in a similar way to P52. 
+    After the QuorumEvent of Deal is sent, the class instatiates the two piles and their respective players. I also had my design extend the Table interface so that we could 
+    get the addPile, getPlayers, and partiesReady in our classes to better facilitate the start of the game. My design is a good seperation of concerns because it only has 
+    things that the War card game class depends on/ needs and not other things it doesn't need. For 6 I added a new class WarSelectionEvent that specifically handles this 
+    functionality only, and it has a selectEvent() that takes in the string selection (card numbers) and sets it to the primitave, and a getselection() method 
+    to get the selection event to pass to the Event handlers. This is also a good seperation of concerns because we already have classes with the rules and event selection code
+    so we can just pass this war specific selection event to those and the rules classes to evaluate them.
